@@ -1,11 +1,5 @@
 <template>
-  <el-table
-    :data="list"
-    border
-    fit
-    highlight-current-row
-    style="width: 100%"
-  >
+  <el-table :data="list" border fit highlight-current-row style="width: 100%;">
     <el-table-column
       v-loading="loading"
       align="center"
@@ -13,73 +7,50 @@
       width="65"
       element-loading-text="请给我点时间！"
     >
-      <template slot-scope="{row}">
+      <template v-slot="{ row }">
         <span>{{ row.id }}</span>
       </template>
     </el-table-column>
 
-    <el-table-column
-      width="180px"
-      align="center"
-      label="Date"
-    >
-      <template slot-scope="{row}">
+    <el-table-column width="180px" align="center" label="Date">
+      <template v-slot="{ row }">
+        <!-- eslint-disable -->
         <span>{{ row.timestamp | parseTime }}</span>
+        <!-- eslint-enable -->
       </template>
     </el-table-column>
 
-    <el-table-column
-      min-width="240px"
-      label="Title"
-    >
-      <template slot-scope="{row}">
+    <el-table-column min-width="240px" label="Title">
+      <template v-slot="{ row }">
         <span>{{ row.title }}</span>
         <el-tag>{{ row.type }}</el-tag>
       </template>
     </el-table-column>
 
-    <el-table-column
-      width="180px"
-      align="center"
-      label="Author"
-    >
-      <template slot-scope="{row}">
+    <el-table-column width="180px" align="center" label="Author">
+      <template v-slot="{ row }">
         <span>{{ row.author }}</span>
       </template>
     </el-table-column>
 
-    <el-table-column
-      width="120px"
-      label="Importance"
-    >
-      <template slot-scope="{row}">
-        <svg-icon
-          v-for="n in +row.importance"
-          :key="n"
-          name="star"
-        />
+    <el-table-column width="120px" label="Importance">
+      <template v-slot="{ row }">
+        <svg-icon v-for="n in +row.importance" :key="n" name="star" />
       </template>
     </el-table-column>
 
-    <el-table-column
-      align="center"
-      label="Readings"
-      width="95"
-    >
-      <template slot-scope="{row}">
+    <el-table-column align="center" label="Readings" width="95">
+      <template v-slot="{ row }">
         <span>{{ row.pageviews }}</span>
       </template>
     </el-table-column>
 
-    <el-table-column
-      class-name="status-col"
-      label="Status"
-      width="110"
-    >
-      <template slot-scope="{row}">
+    <el-table-column class-name="status-col" label="Status" width="110">
+      <template v-slot="{ row }">
+        <!-- eslint-disable -->
         <el-tag :type="row.status | articleStatusFilter">
           {{ row.status }}
-        </el-tag>
+        </el-tag><!-- eslint-enable -->
       </template>
     </el-table-column>
   </el-table>
@@ -90,7 +61,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 import { getArticles } from '@/api/articles'
 
 @Component({
-  name: 'TabPane'
+  name: 'TabPane',
 })
 export default class extends Vue {
   @Prop({ default: 'CN' }) private type!: string
@@ -100,7 +71,7 @@ export default class extends Vue {
     page: 1,
     limit: 5,
     type: this.type,
-    sort: 'id'
+    sort: 'id',
   }
 
   private loading = false

@@ -5,40 +5,22 @@
     @command="handleSetLanguage"
   >
     <div>
-      <svg-icon
-        name="language"
-        class="international-icon"
-      />
+      <svg-icon name="language" class="international-icon" />
     </div>
     <el-dropdown-menu slot="dropdown">
-      <el-dropdown-item
-        :disabled="language==='zh'"
-        command="zh"
-      >
+      <el-dropdown-item :disabled="language === 'zh'" command="zh">
         中文
       </el-dropdown-item>
-      <el-dropdown-item
-        :disabled="language==='en'"
-        command="en"
-      >
+      <el-dropdown-item :disabled="language === 'en'" command="en">
         English
       </el-dropdown-item>
-      <el-dropdown-item
-        :disabled="language==='es'"
-        command="es"
-      >
+      <el-dropdown-item :disabled="language === 'es'" command="es">
         Español
       </el-dropdown-item>
-      <el-dropdown-item
-        :disabled="language==='ja'"
-        command="ja"
-      >
+      <el-dropdown-item :disabled="language === 'ja'" command="ja">
         日本語
       </el-dropdown-item>
-      <el-dropdown-item
-        :disabled="language==='ko'"
-        command="ko"
-      >
+      <el-dropdown-item :disabled="language === 'ko'" command="ko">
         한국어
       </el-dropdown-item>
     </el-dropdown-menu>
@@ -50,7 +32,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import { AppModule } from '@/store/modules/app'
 
 @Component({
-  name: 'Login'
+  name: 'Login',
 })
 export default class extends Vue {
   get language() {
@@ -62,7 +44,7 @@ export default class extends Vue {
     AppModule.SetLanguage(lang)
     this.$message({
       message: 'Switch Language Success',
-      type: 'success'
+      type: 'success',
     })
   }
 }

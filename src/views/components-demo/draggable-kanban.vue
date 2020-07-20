@@ -31,8 +31,8 @@ import DraggableKanban from '@/components/DraggableKanban/index.vue'
 @Component({
   name: 'DraggableKanbanDemo',
   components: {
-    DraggableKanban
-  }
+    DraggableKanban,
+  },
 })
 export default class extends Vue {
   private group = 'mission'
@@ -40,19 +40,19 @@ export default class extends Vue {
     { name: 'Mission', id: 1 },
     { name: 'Mission', id: 2 },
     { name: 'Mission', id: 3 },
-    { name: 'Mission', id: 4 }
+    { name: 'Mission', id: 4 },
   ]
 
   private list2 = [
     { name: 'Mission', id: 5 },
     { name: 'Mission', id: 6 },
-    { name: 'Mission', id: 7 }
+    { name: 'Mission', id: 7 },
   ]
 
   private list3 = [
     { name: 'Mission', id: 8 },
     { name: 'Mission', id: 9 },
-    { name: 'Mission', id: 10 }
+    { name: 'Mission', id: 10 },
   ]
 }
 </script>
@@ -61,7 +61,7 @@ export default class extends Vue {
 .kanban {
   &.todo {
     .board-column-header {
-      background: #4A9FF9;
+      background: #4a9ff9;
     }
   }
 

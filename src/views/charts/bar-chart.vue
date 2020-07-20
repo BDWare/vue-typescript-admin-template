@@ -1,9 +1,6 @@
 <template>
   <div class="chart-container">
-    <bar-chart
-      height="100%"
-      width="100%"
-    />
+    <bar-chart height="100%" width="100%" />
   </div>
 </template>
 
@@ -14,8 +11,8 @@ import BarChart from '@/components/Charts/BarChart.vue'
 @Component({
   name: 'BarChartDemo',
   components: {
-    BarChart
-  }
+    BarChart,
+  },
 })
 export default class extends Vue {}
 </script>

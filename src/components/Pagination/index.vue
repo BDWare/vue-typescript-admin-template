@@ -1,12 +1,9 @@
 <template>
-  <div
-    :class="{'hidden': hidden}"
-    class="pagination-container"
-  >
+  <div :class="{ hidden: hidden }" class="pagination-container">
     <el-pagination
       :background="background"
-      :current-page.sync="currentPage"
-      :page-size.sync="pageSize"
+      v-model:current-page="currentPage"
+      v-model:page-size="pageSize"
       :layout="layout"
       :page-sizes="pageSizes"
       :total="total"
@@ -22,14 +19,15 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 import { scrollTo } from '@/utils/scroll-to'
 
 @Component({
-  name: 'Pagination'
+  name: 'Pagination',
 })
 export default class extends Vue {
   @Prop({ required: true }) private total!: number
   @Prop({ default: 1 }) private page!: number
   @Prop({ default: 20 }) private limit!: number
   @Prop({ default: () => [10, 20, 30, 50] }) private pageSizes!: number[]
-  @Prop({ default: 'total, sizes, prev, pager, next, jumper' }) private layout!: string
+  @Prop({ default: 'total, sizes, prev, pager, next, jumper' })
+  private layout!: string
   @Prop({ default: true }) private background!: boolean
   @Prop({ default: true }) private autoScroll!: boolean
   @Prop({ default: false }) private hidden!: boolean

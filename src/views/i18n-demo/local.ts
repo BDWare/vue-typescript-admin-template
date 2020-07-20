@@ -16,8 +16,8 @@ export default {
       danger: '危险按钮',
       one: '一',
       two: '二',
-      three: '三'
-    }
+      three: '三',
+    },
   },
   en: {
     i18nView: {
@@ -36,8 +36,8 @@ export default {
       danger: 'danger',
       one: 'One',
       two: 'Two',
-      three: 'Three'
-    }
+      three: 'Three',
+    },
   },
   es: {
     i18nView: {
@@ -56,8 +56,8 @@ export default {
       danger: 'peligro',
       one: 'Uno',
       two: 'Dos',
-      three: 'Tres'
-    }
+      three: 'Tres',
+    },
   },
   ja: {
     i18nView: {
@@ -76,8 +76,8 @@ export default {
       danger: 'danger',
       one: '1',
       two: '2',
-      three: '3'
-    }
+      three: '3',
+    },
   },
   ko: {
     i18nView: {
@@ -96,7 +96,7 @@ export default {
       danger: '위험',
       one: '하나',
       two: '둘',
-      three: '셋'
-    }
-  }
+      three: '셋',
+    },
+  },
 }

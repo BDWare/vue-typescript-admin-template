@@ -1,14 +1,11 @@
 <template>
   <div class="app-container">
     <el-tabs v-model="activeName">
-      <el-tab-pane
-        label="use clipboard directly"
-        name="directly"
-      >
+      <el-tab-pane label="use clipboard directly" name="directly">
         <el-input
           v-model="inputData"
           placeholder="Please input"
-          style="width:400px; max-width:100%;"
+          style="width: 400px; max-width: 100%;"
         />
         <el-button
           type="primary"
@@ -18,14 +15,11 @@
           copy
         </el-button>
       </el-tab-pane>
-      <el-tab-pane
-        label="use clipboard by v-directive"
-        name="v-directive"
-      >
+      <el-tab-pane label="use clipboard by v-directive" name="v-directive">
         <el-input
           v-model="inputData"
           placeholder="Please input"
-          style="width:400px; max-width:100%;"
+          style="width: 400px; max-width: 100%;"
         />
         <el-button
           v-clipboard:copy="inputData"
@@ -45,7 +39,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import { handleClipboard, clipboardSuccess } from '@/utils/clipboard' // use clipboard directly
 
 @Component({
-  name: 'Clipboard'
+  name: 'Clipboard',
 })
 export default class extends Vue {
   private activeName = 'directly'

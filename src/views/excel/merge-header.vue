@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-button
       :loading="downloadLoading"
-      style="margin-bottom:20px"
+      style="margin-bottom: 20px;"
       type="primary"
       icon="el-icon-document"
       @click="handleDownload"
@@ -19,51 +19,34 @@
       fit
       highlight-current-row
     >
-      <el-table-column
-        align="center"
-        label="Id"
-        width="95"
-      >
-        <template slot-scope="{$index}">
+      <el-table-column align="center" label="Id" width="95">
+        <template v-slot="{ $index }">
           {{ $index }}
         </template>
       </el-table-column>
-      <el-table-column
-        label="Main Information"
-        align="center"
-      >
+      <el-table-column label="Main Information" align="center">
         <el-table-column label="Title">
-          <template slot-scope="{row}">
+          <template v-slot="{ row }">
             {{ row.title }}
           </template>
         </el-table-column>
-        <el-table-column
-          label="Author"
-          align="center"
-          width="180"
-        >
-          <template slot-scope="{row}">
+        <el-table-column label="Author" align="center" width="180">
+          <template v-slot="{ row }">
             <el-tag>{{ row.author }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column
-          label="Readings"
-          align="center"
-          width="115"
-        >
-          <template slot-scope="{row}">
+        <el-table-column label="Readings" align="center" width="115">
+          <template v-slot="{ row }">
             {{ row.pageviews }}
           </template>
         </el-table-column>
       </el-table-column>
-      <el-table-column
-        align="center"
-        label="Date"
-        width="220"
-      >
-        <template slot-scope="{row}">
+      <el-table-column align="center" label="Date" width="220">
+        <template v-slot="{ row }">
           <i class="el-icon-time" />
+          <!-- eslint-disable -->
           <span>{{ row.timestamp | parseTime }}</span>
+          <!-- eslint-enable -->
         </template>
       </el-table-column>
     </el-table>
@@ -78,7 +61,7 @@ import { formatJson } from '@/utils'
 import { exportJson2Excel } from '@/utils/excel'
 
 @Component({
-  name: 'MergeHeader'
+  name: 'MergeHeader',
 })
 export default class extends Vue {
   private list: IArticleData[] = []
@@ -91,7 +74,9 @@ export default class extends Vue {
 
   private async fetchData() {
     this.listLoading = true
-    const { data } = await getArticles({ /* Your params here */ })
+    const { data } = await getArticles({
+      /* Your params here */
+    })
     this.list = data.items
     // Just to simulate the time of the request
     setTimeout(() => {

@@ -114,10 +114,7 @@
       <div>placeholder</div>
     </div>
     <!-- you can add element-ui's tooltip -->
-    <el-tooltip
-      placement="top"
-      content="Customize your tooltip content here"
-    >
+    <el-tooltip placement="top" content="Customize your tooltip content here">
       <back-to-top
         :custom-style="myBackToTopStyle"
         :visibility-height="300"
@@ -135,8 +132,8 @@ import BackToTop from '@/components/BackToTop/index.vue'
 @Component({
   name: 'BackToTopDemo',
   components: {
-    BackToTop
-  }
+    BackToTop,
+  },
 })
 export default class extends Vue {
   private myBackToTopStyle = {
@@ -146,7 +143,7 @@ export default class extends Vue {
     height: '40px',
     'border-radius': '4px',
     'line-height': '45px', // Please keep consistent with height to make it center vertically
-    background: '#e7eaf1'
+    background: '#e7eaf1',
   }
 }
 </script>

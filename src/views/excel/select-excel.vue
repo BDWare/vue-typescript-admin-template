@@ -3,12 +3,12 @@
     <el-input
       v-model="filename"
       placeholder="Please enter the file name (default excel-list)"
-      style="width:350px;"
+      style="width: 350px;"
       prefix-icon="el-icon-document"
     />
     <el-button
       :loading="downloadLoading"
-      style="margin-bottom:20px"
+      style="margin-bottom: 20px;"
       type="primary"
       icon="el-icon-document"
       @click="handleDownload"
@@ -18,7 +18,7 @@
     <a
       href="https://armour.github.io/vue-typescript-admin-docs/features/components/excel.html"
       target="_blank"
-      style="margin-left:15px;"
+      style="margin-left: 15px;"
     >
       <el-tag type="info">Documentation</el-tag>
     </a>
@@ -32,48 +32,29 @@
       highlight-current-row
       @selection-change="handleSelectionChange"
     >
-      <el-table-column
-        type="selection"
-        align="center"
-      />
-      <el-table-column
-        align="center"
-        label="Id"
-        width="95"
-      >
-        <template slot-scope="{$index}">
+      <el-table-column type="selection" align="center" />
+      <el-table-column align="center" label="Id" width="95">
+        <template v-slot="{ $index }">
           {{ $index }}
         </template>
       </el-table-column>
       <el-table-column label="Title">
-        <template slot-scope="{row}">
+        <template v-slot="{ row }">
           {{ row.title }}
         </template>
       </el-table-column>
-      <el-table-column
-        label="Author"
-        align="center"
-        width="180"
-      >
-        <template slot-scope="{row}">
+      <el-table-column label="Author" align="center" width="180">
+        <template v-slot="{ row }">
           <el-tag>{{ row.author }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column
-        label="Readings"
-        align="center"
-        width="115"
-      >
-        <template slot-scope="{row}">
+      <el-table-column label="Readings" align="center" width="115">
+        <template v-slot="{ row }">
           {{ row.pageviews }}
         </template>
       </el-table-column>
-      <el-table-column
-        align="center"
-        label="PDate"
-        width="220"
-      >
-        <template slot-scope="{row}">
+      <el-table-column align="center" label="PDate" width="220">
+        <template v-slot="{ row }">
           <i class="el-icon-time" />
           <span>{{ row.timestamp }}</span>
         </template>
@@ -91,7 +72,7 @@ import { exportJson2Excel } from '@/utils/excel'
 import { Table } from 'element-ui'
 
 @Component({
-  name: 'SelectExcel'
+  name: 'SelectExcel',
 })
 export default class extends Vue {
   private list: IArticleData[] = []
@@ -106,7 +87,9 @@ export default class extends Vue {
 
   private async fetchData() {
     this.listLoading = true
-    const { data } = await getArticles({ /* Your params here */ })
+    const { data } = await getArticles({
+      /* Your params here */
+    })
     this.list = data.items
     // Just to simulate the time of the request
     setTimeout(() => {
@@ -125,13 +108,17 @@ export default class extends Vue {
       const filterVal = ['id', 'title', 'author', 'pageviews', 'timestamp']
       const list = this.multipleSelection
       const data = formatJson(filterVal, list)
-      exportJson2Excel(tHeader, data, this.filename !== '' ? this.filename : undefined);
-      (this.$refs.multipleTable as Table).clearSelection()
+      exportJson2Excel(
+        tHeader,
+        data,
+        this.filename !== '' ? this.filename : undefined,
+      )
+      ;(this.$refs.multipleTable as Table).clearSelection()
       this.downloadLoading = false
     } else {
       this.$message({
         message: 'Please select at least one item',
-        type: 'warning'
+        type: 'warning',
       })
     }
   }

@@ -10,7 +10,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'ErrorTestA'
+  name: 'ErrorTestA',
 })
 export default class extends Vue {}
 </script>

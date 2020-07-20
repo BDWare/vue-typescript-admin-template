@@ -2,10 +2,9 @@
   <div class="components-container">
     <aside>
       Based on
-      <a
-        class="link-type"
-        href="https://github.com/rowanwins/vue-dropzone"
-      >vue-dropzone</a>.
+      <a class="link-type" href="https://github.com/rowanwins/vue-dropzone"
+        >vue-dropzone</a
+      >.
     </aside>
     <div class="editor-container">
       <dropzone
@@ -25,8 +24,8 @@ import Dropzone from '@/components/Dropzone/index.vue'
 @Component({
   name: 'DropzoneDemo',
   components: {
-    Dropzone
-  }
+    Dropzone,
+  },
 })
 export default class extends Vue {
   private dropzoneSuccess(file: File, response: any) {

@@ -1,7 +1,7 @@
 <template>
   <div id="screenfull">
     <svg-icon
-      :name="isFullscreen? 'exit-fullscreen': 'fullscreen'"
+      :name="isFullscreen ? 'exit-fullscreen' : 'fullscreen'"
       @click="click"
     />
   </div>
@@ -14,7 +14,7 @@ import { Component, Vue } from 'vue-property-decorator'
 const sf = screenfull
 
 @Component({
-  name: 'Screenfull'
+  name: 'Screenfull',
 })
 export default class extends Vue {
   private isFullscreen = false
@@ -41,7 +41,7 @@ export default class extends Vue {
     if (!sf.isEnabled) {
       this.$message({
         message: 'you browser can not work',
-        type: 'warning'
+        type: 'warning',
       })
       return false
     }

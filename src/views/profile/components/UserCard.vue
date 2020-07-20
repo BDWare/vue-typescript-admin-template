@@ -1,9 +1,8 @@
 <template>
-  <el-card style="margin-bottom:20px;">
-    <div
-      slot="header"
-      class="clearfix"
-    >
+  <el-card style="margin-bottom: 20px;">
+    <!-- eslint-disable -->
+    <div slot="header" class="clearfix">
+      <!-- eslint-enable -->
       <span>About me</span>
     </div>
 
@@ -23,9 +22,10 @@
         <div class="user-name text-center">
           {{ user.name }}
         </div>
+        <!-- eslint-disable -->
         <div class="user-role text-center text-muted">
           {{ user.roles | uppercaseFirstChar }}
-        </div>
+        </div><!-- eslint-enable -->
       </div>
     </div>
 
@@ -60,10 +60,7 @@
           </div>
           <div class="progress-item">
             <span>ESLint</span>
-            <el-progress
-              :percentage="100"
-              status="success"
-            />
+            <el-progress :percentage="100" status="success" />
           </div>
         </div>
       </div>
@@ -79,8 +76,8 @@ import PanThumb from '@/components/PanThumb/index.vue'
 @Component({
   name: 'UserCard',
   components: {
-    PanThumb
-  }
+    PanThumb,
+  },
 })
 export default class extends Vue {
   @Prop({ required: true }) private user!: IProfile

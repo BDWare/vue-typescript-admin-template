@@ -22,24 +22,24 @@ Vue.use(VueI18n)
 const messages = {
   en: {
     ...enLocale,
-    ...elementEnLocale
+    ...elementEnLocale,
   },
   zh: {
     ...zhLocale,
-    ...elementZhLocale
+    ...elementZhLocale,
   },
   es: {
     ...esLocale,
-    ...elementEsLocale
+    ...elementEsLocale,
   },
   ja: {
     ...jaLocale,
-    ...elementJaLocale
+    ...elementJaLocale,
   },
   ko: {
     ...koLocale,
-    ...elementKoLocale
-  }
+    ...elementKoLocale,
+  },
 }
 
 export const getLocale = () => {
@@ -62,7 +62,7 @@ export const getLocale = () => {
 
 const i18n = new VueI18n({
   locale: getLocale(),
-  messages
+  messages,
 })
 
 export default i18n

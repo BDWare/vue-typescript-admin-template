@@ -8,7 +8,7 @@
       :data="tableData"
       border
       highlight-current-row
-      style="width: 100%;margin-top:20px;"
+      style="width: 100%; margin-top: 20px;"
     >
       <el-table-column
         v-for="item of tableHeader"
@@ -27,8 +27,8 @@ import UploadExcelComponent from '@/components/UploadExcel/index.vue'
 @Component({
   name: 'UploadExcel',
   components: {
-    UploadExcelComponent
-  }
+    UploadExcelComponent,
+  },
 })
 export default class extends Vue {
   private tableData: any = []
@@ -41,12 +41,18 @@ export default class extends Vue {
     }
     this.$message({
       message: 'Please do not upload files larger than 1m in size.',
-      type: 'warning'
+      type: 'warning',
     })
     return false
   }
 
-  private handleSuccess({ results, header }: { results: any, header: string[]}) {
+  private handleSuccess({
+    results,
+    header,
+  }: {
+    results: any
+    header: string[]
+  }) {
     this.tableData = results
     this.tableHeader = header
   }

@@ -1,23 +1,14 @@
 <template>
-  <li
-    :class="{completed: todo.done, editing: editing}"
-    class="todo"
-  >
+  <li :class="{ completed: todo.done, editing: editing }" class="todo">
     <div class="view">
       <input
         :checked="todo.done"
         class="toggle"
         type="checkbox"
-        @change="toggleTodo( todo)"
-      >
-      <label
-        @dblclick="editing = true"
-        v-text="todo.text"
+        @change="toggleTodo(todo)"
       />
-      <button
-        class="destroy"
-        @click="deleteTodo( todo )"
-      />
+      <label @dblclick="editing = true" v-text="todo.text" />
+      <button class="destroy" @click="deleteTodo(todo)" />
     </div>
     <input
       v-show="editing"
@@ -27,7 +18,7 @@
       @keyup.enter="doneEdit"
       @keyup.esc="cancelEdit"
       @blur="doneEdit"
-    >
+    />
   </li>
 </template>
 
@@ -50,8 +41,8 @@ export interface ITodo {
           })
         }
       }
-    }
-  }
+    },
+  },
 })
 export default class extends Vue {
   @Prop({ default: { text: '', done: false } }) private todo!: ITodo
@@ -62,7 +53,7 @@ export default class extends Vue {
     this.$emit('deleteTodo', todo)
   }
 
-  private editTodo({ todo, value }: { todo: ITodo, value: string }) {
+  private editTodo({ todo, value }: { todo: ITodo; value: string }) {
     this.$emit('editTodo', { todo, value })
   }
 
@@ -78,14 +69,14 @@ export default class extends Vue {
     } else if (this.editing) {
       this.editTodo({
         todo,
-        value
+        value,
       })
       this.editing = false
     }
   }
 
   private cancelEdit(e: KeyboardEvent) {
-    (e.target as HTMLInputElement).value = this.todo.text
+    ;(e.target as HTMLInputElement).value = this.todo.text
     this.editing = false
   }
 }

@@ -1,27 +1,17 @@
 <template>
-  <el-dropdown
-    :show-timeout="100"
-    trigger="click"
-  >
+  <el-dropdown :show-timeout="100" trigger="click">
     <el-button plain>
       Link
       <i class="el-icon-caret-bottom el-icon--right" />
     </el-button>
-    <el-dropdown-menu
-      slot="dropdown"
-      class="no-padding"
-      style="width:400px"
-    >
+    <el-dropdown-menu slot="dropdown" class="no-padding" style="width: 400px;">
       <el-form-item
         label-width="0px"
-        style="margin-bottom: 0px"
+        style="margin-bottom: 0px;"
         prop="sourceURL"
       >
-        <el-input
-          v-model="sourceURL"
-          placeholder="Please enter the content"
-        >
-          <template slot="prepend">
+        <el-input v-model="sourceURL" placeholder="Please enter the content">
+          <template v-slot:prepend>
             URL
           </template>
         </el-input>
@@ -34,7 +24,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'SourceUrlDropdown'
+  name: 'SourceUrlDropdown',
 })
 export default class extends Vue {
   @Prop({ required: true }) private value!: string

@@ -6,43 +6,30 @@
       border
       fit
       highlight-current-row
-      style="width: 100%"
+      style="width: 100%;"
     >
-      <el-table-column
-        align="center"
-        label="ID"
-        width="80"
-      >
-        <template slot-scope="{row}">
+      <el-table-column align="center" label="ID" width="80">
+        <template v-slot="{ row }">
           <span>{{ row.id }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column
-        width="180px"
-        align="center"
-        label="Date"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="180px" align="center" label="Date">
+        <template v-slot="{ row }">
+          <!-- eslint-disable -->
           <span>{{ row.timestamp | parseTime }}</span>
+          <!-- eslint-enable -->
         </template>
       </el-table-column>
 
-      <el-table-column
-        align="center"
-        label="Author"
-        width="180px"
-      >
-        <template slot-scope="{row}">
+      <el-table-column align="center" label="Author" width="180px">
+        <template v-slot="{ row }">
           <span>{{ row.author }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column
-        width="105px"
-        label="Importance"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="105px" label="Importance">
+        <template v-slot="{ row }">
           <svg-icon
             v-for="n in +row.importance"
             :key="n"
@@ -52,29 +39,19 @@
         </template>
       </el-table-column>
 
-      <el-table-column
-        class-name="status-col"
-        label="Status"
-        width="110"
-      >
-        <template slot-scope="{row}">
+      <el-table-column class-name="status-col" label="Status" width="110">
+        <template v-slot="{ row }">
+          <!-- eslint-disable -->
           <el-tag :type="row.status | articleStatusFilter">
-            {{ row.status }}
-          </el-tag>
+            {{ row.status }} </el-tag
+          ><!-- eslint-enable -->
         </template>
       </el-table-column>
 
-      <el-table-column
-        min-width="250px"
-        label="Title"
-      >
-        <template slot-scope="{row}">
+      <el-table-column min-width="250px" label="Title">
+        <template v-slot="{ row }">
           <template v-if="row.edit">
-            <el-input
-              v-model="row.title"
-              class="edit-input"
-              size="small"
-            />
+            <el-input v-model="row.title" class="edit-input" size="small" />
             <el-button
               class="cancel-btn"
               size="small"
@@ -89,12 +66,8 @@
         </template>
       </el-table-column>
 
-      <el-table-column
-        align="center"
-        label="Actions"
-        width="120"
-      >
-        <template slot-scope="{row}">
+      <el-table-column align="center" label="Actions" width="120">
+        <template v-slot="{ row }">
           <el-button
             v-if="row.edit"
             type="success"
@@ -109,7 +82,7 @@
             type="primary"
             size="small"
             icon="el-icon-edit"
-            @click="row.edit=!row.edit"
+            @click="row.edit = !row.edit"
           >
             Edit
           </el-button>
@@ -125,14 +98,14 @@ import { getArticles } from '@/api/articles'
 import { IArticleData } from '@/api/types'
 
 @Component({
-  name: 'InlineEditTable'
+  name: 'InlineEditTable',
 })
 export default class extends Vue {
   private list: IArticleData[] = []
   private listLoading = true
   private listQuery = {
     page: 1,
-    limit: 10
+    limit: 10,
   }
 
   created() {
@@ -159,7 +132,7 @@ export default class extends Vue {
     row.edit = false
     this.$message({
       message: 'The title has been restored to the original value',
-      type: 'warning'
+      type: 'warning',
     })
   }
 
@@ -168,7 +141,7 @@ export default class extends Vue {
     row.originalTitle = row.title
     this.$message({
       message: 'The title has been edited',
-      type: 'success'
+      type: 'success',
     })
   }
 }

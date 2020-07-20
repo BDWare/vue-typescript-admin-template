@@ -22,6 +22,6 @@ export default {
     'link',
     'divider',
     'code',
-    'codeblock'
-  ]
+    'codeblock',
+  ],
 }

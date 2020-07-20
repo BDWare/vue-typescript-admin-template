@@ -19,7 +19,7 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 require('script-loader!jsonlint')
 
 @Component({
-  name: 'JsonEditor'
+  name: 'JsonEditor',
 })
 export default class extends Vue {
   @Prop({ required: true }) private value!: string
@@ -37,16 +37,19 @@ export default class extends Vue {
   }
 
   mounted() {
-    this.jsonEditor = CodeMirror.fromTextArea(this.$refs.textarea as HTMLTextAreaElement, {
-      lineNumbers: true,
-      mode: 'application/json',
-      gutters: ['CodeMirror-lint-markers'],
-      theme: 'rubyblue',
-      lint: true
-    })
+    this.jsonEditor = CodeMirror.fromTextArea(
+      this.$refs.textarea as HTMLTextAreaElement,
+      {
+        lineNumbers: true,
+        mode: 'application/json',
+        gutters: ['CodeMirror-lint-markers'],
+        theme: 'rubyblue',
+        lint: true,
+      },
+    )
 
     this.jsonEditor.setValue(JSON.stringify(this.value, null, 2))
-    this.jsonEditor.on('change', editor => {
+    this.jsonEditor.on('change', (editor) => {
       this.$emit('changed', editor.getValue())
       this.$emit('input', editor.getValue())
     })
@@ -79,7 +82,7 @@ export default class extends Vue {
 }
 
 .cm span.cm-string {
-  color: #F08047;
+  color: #f08047;
 }
 </style>
 

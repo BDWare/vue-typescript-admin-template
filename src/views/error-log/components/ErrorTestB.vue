@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--error code-->
-    {{ b = b.b }}
+    {{ (b = b.b) }}
     <!--error code-->
   </div>
 </template>
@@ -10,7 +10,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'ErrorTestB'
+  name: 'ErrorTestB',
 })
 export default class extends Vue {}
 </script>

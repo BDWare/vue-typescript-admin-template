@@ -6,10 +6,7 @@
       :rules="rules"
       class="form-container"
     >
-      <sticky
-        :z-index="10"
-        :class-name="'sub-navbar '+postForm.status"
-      >
+      <sticky :z-index="10" :class-name="'sub-navbar ' + postForm.status">
         <comment-dropdown v-model="postForm.disableComment" />
         <platform-dropdown v-model="postForm.platforms" />
         <source-url-dropdown v-model="postForm.sourceURL" />
@@ -21,11 +18,7 @@
         >
           Publish
         </el-button>
-        <el-button
-          v-loading="loading"
-          type="warning"
-          @click="draftForm"
-        >
+        <el-button v-loading="loading" type="warning" @click="draftForm">
           Draft
         </el-button>
       </sticky>
@@ -35,10 +28,7 @@
           <warning />
 
           <el-col :span="24">
-            <el-form-item
-              style="margin-bottom: 40px;"
-              prop="title"
-            >
+            <el-form-item style="margin-bottom: 40px;" prop="title">
               <material-input
                 v-model="postForm.title"
                 :maxlength="100"
@@ -67,7 +57,7 @@
                     >
                       <el-option
                         v-for="(item, index) in userListOptions"
-                        :key="item+index"
+                        :key="item + index"
                         :label="item"
                         :value="item"
                       />
@@ -102,7 +92,7 @@
                       :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
                       :low-threshold="1"
                       :high-threshold="3"
-                      style="display:inline-block"
+                      style="display: inline-block;"
                     />
                   </el-form-item>
                 </el-col>
@@ -124,16 +114,12 @@
             autosize
             placeholder="Please enter the content"
           />
-          <span
-            v-show="abstractContentLength"
-            class="word-counter"
-          >{{ abstractContentLength }}words</span>
+          <span v-show="abstractContentLength" class="word-counter"
+            >{{ abstractContentLength }}words</span
+          >
         </el-form-item>
 
-        <el-form-item
-          prop="content"
-          style="margin-bottom: 30px;"
-        >
+        <el-form-item prop="content" style="margin-bottom: 30px;">
           <tinymce
             v-if="tinymceActive"
             ref="editor"
@@ -142,10 +128,7 @@
           />
         </el-form-item>
 
-        <el-form-item
-          prop="imageURL"
-          style="margin-bottom: 30px;"
-        >
+        <el-form-item prop="imageURL" style="margin-bottom: 30px;">
           <upload-image v-model="postForm.imageURL" />
         </el-form-item>
       </div>
@@ -165,7 +148,11 @@ import Sticky from '@/components/Sticky/index.vue'
 import Tinymce from '@/components/Tinymce/index.vue'
 import UploadImage from '@/components/UploadImage/index.vue'
 import Warning from './Warning.vue'
-import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './Dropdown'
+import {
+  CommentDropdown,
+  PlatformDropdown,
+  SourceUrlDropdown,
+} from './Dropdown'
 import { Form } from 'element-ui'
 
 @Component({
@@ -178,8 +165,8 @@ import { Form } from 'element-ui'
     Sticky,
     Tinymce,
     UploadImage,
-    Warning
-  }
+    Warning,
+  },
 })
 export default class extends Vue {
   @Prop({ default: false }) private isEdit!: boolean
@@ -189,12 +176,12 @@ export default class extends Vue {
       if (rule.field === 'imageURL') {
         this.$message({
           message: 'Upload cover image is required',
-          type: 'error'
+          type: 'error',
         })
       } else {
         this.$message({
           message: rule.field + ' is required',
-          type: 'error'
+          type: 'error',
         })
       }
       callback(new Error(rule.field + ' is required'))
@@ -210,7 +197,7 @@ export default class extends Vue {
       } else {
         this.$message({
           message: 'Invalid URL',
-          type: 'error'
+          type: 'error',
         })
         callback(new Error('Invalid URL'))
       }
@@ -226,7 +213,7 @@ export default class extends Vue {
     imageURL: [{ validator: this.validateRequire }],
     title: [{ validator: this.validateRequire }],
     fullContent: [{ validator: this.validateRequire }],
-    sourceURL: [{ validator: this.validateSourceUrl, trigger: 'blur' }]
+    sourceURL: [{ validator: this.validateSourceUrl, trigger: 'blur' }],
   }
 
   private tempTagView?: ITagView
@@ -245,7 +232,7 @@ export default class extends Vue {
   // e.g.: backend return => "2013-06-25 06:59:25"
   //       frontend need timestamp => 1372114765000
   get timestamp() {
-    return (+new Date(this.postForm.timestamp))
+    return +new Date(this.postForm.timestamp)
   }
 
   set timestamp(value) {
@@ -273,7 +260,9 @@ export default class extends Vue {
 
   private async fetchData(id: number) {
     try {
-      const { data } = await getArticle(id, { /* Your params here */ })
+      const { data } = await getArticle(id, {
+        /* Your params here */
+      })
       this.postForm = data.article
       // Just for test
       this.postForm.title += `   Article Id:${this.postForm.id}`
@@ -301,14 +290,14 @@ export default class extends Vue {
   }
 
   private submitForm() {
-    (this.$refs.postForm as Form).validate(valid => {
+    ;(this.$refs.postForm as Form).validate((valid) => {
       if (valid) {
         this.loading = true
         this.$notify({
           title: 'Success',
           message: 'The post published successfully',
           type: 'success',
-          duration: 2000
+          duration: 2000,
         })
         this.postForm.status = 'published'
         // Just to simulate the time of the request
@@ -323,10 +312,13 @@ export default class extends Vue {
   }
 
   private draftForm() {
-    if (this.postForm.fullContent.length === 0 || this.postForm.title.length === 0) {
+    if (
+      this.postForm.fullContent.length === 0 ||
+      this.postForm.title.length === 0
+    ) {
       this.$message({
         message: 'Title and detail content are required',
-        type: 'warning'
+        type: 'warning',
       })
       return
     }
@@ -334,7 +326,7 @@ export default class extends Vue {
       message: 'The draft saved successfully',
       type: 'success',
       showClose: true,
-      duration: 1000
+      duration: 1000,
     })
     this.postForm.status = 'draft'
   }

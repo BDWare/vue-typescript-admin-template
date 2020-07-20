@@ -14,12 +14,12 @@ const checkNeed = () => {
 }
 
 if (checkNeed()) {
-  Vue.config.errorHandler = function(err, vm, info) {
+  Vue.config.errorHandler = function (err, vm, info) {
     ErrorLogModule.AddErrorLog({
       err,
       vm,
       info,
-      url: window.location.href
+      url: window.location.href,
     })
   }
 }

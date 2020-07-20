@@ -7,10 +7,7 @@
     @vdropzone-success="dropzoneSuccess"
   >
     <div class="dropzone-custom-content">
-      <h3
-        class="dropzone-custom-title"
-        :style="{color: themeColor}"
-      >
+      <h3 class="dropzone-custom-title" :style="{ color: themeColor }">
         Drag and drop to upload content!
       </h3>
       <div class="subtitle">
@@ -29,8 +26,8 @@ import { SettingsModule } from '@/store/modules/settings'
 @Component({
   name: 'Dropzone',
   components: {
-    VueDropzone
-  }
+    VueDropzone,
+  },
 })
 export default class extends Vue {
   // You can add more Prop, see: https://www.dropzonejs.com/#configuration
@@ -42,8 +39,10 @@ export default class extends Vue {
   @Prop({ default: 5 }) private maxFilesize!: number // In MB
   @Prop({ default: true }) private autoProcessQueue!: boolean
   @Prop({ default: true }) private addRemoveLinks!: boolean
-  @Prop({ default: 'Drop files here to upload' }) private dictDefaultMessage!: string
-  @Prop({ default: 'Your broswer does not support dropzone.js' }) private dictFallbackMessage!: string
+  @Prop({ default: 'Drop files here to upload' })
+  private dictDefaultMessage!: string
+  @Prop({ default: 'Your broswer does not support dropzone.js' })
+  private dictFallbackMessage!: string
   @Prop({ default: 'Remove' }) private dictRemoveFile!: string
   @Prop({ default: 'Max Files Exceeded' }) private dictMaxFilesExceeded!: string
 
@@ -59,7 +58,7 @@ export default class extends Vue {
       dictDefaultMessage: this.dictDefaultMessage,
       dictFallbackMessage: this.dictFallbackMessage,
       dictRemoveFile: this.dictRemoveFile,
-      dictMaxFilesExceeded: this.dictMaxFilesExceeded
+      dictMaxFilesExceeded: this.dictMaxFilesExceeded,
     }
   }
 

@@ -1,5 +1,17 @@
-import { VuexModule, Module, Mutation, Action, getModule } from 'vuex-module-decorators'
-import { getSidebarStatus, getSize, setSidebarStatus, setLanguage, setSize } from '@/utils/cookies'
+import {
+  VuexModule,
+  Module,
+  Mutation,
+  Action,
+  getModule,
+} from 'vuex-module-decorators'
+import {
+  getSidebarStatus,
+  getSize,
+  setSidebarStatus,
+  setLanguage,
+  setSize,
+} from '@/utils/cookies'
 import { getLocale } from '@/lang'
 import store from '@/store'
 
@@ -22,7 +34,7 @@ export interface IAppState {
 class App extends VuexModule implements IAppState {
   public sidebar = {
     opened: getSidebarStatus() !== 'closed',
-    withoutAnimation: false
+    withoutAnimation: false,
   }
 
   public device = DeviceType.Desktop

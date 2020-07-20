@@ -18,14 +18,18 @@ export const clipboard: DirectiveOptions = {
       errorCallback = binding.value
     } else {
       clipboardInstance = new Clipboard(el, {
-        text() { return binding.value },
-        action() { return binding.arg === 'cut' ? 'cut' : 'copy' }
+        text() {
+          return binding.value
+        },
+        action() {
+          return binding.arg === 'cut' ? 'cut' : 'copy'
+        },
       })
-      clipboardInstance.on('success', e => {
+      clipboardInstance.on('success', (e) => {
         const callback = successCallback
         callback && callback(e)
       })
-      clipboardInstance.on('error', e => {
+      clipboardInstance.on('error', (e) => {
         const callback = errorCallback
         callback && callback(e)
       })
@@ -39,8 +43,12 @@ export const clipboard: DirectiveOptions = {
       errorCallback = binding.value
     } else {
       clipboardInstance = new Clipboard(el, {
-        text() { return binding.value },
-        action() { return binding.arg === 'cut' ? 'cut' : 'copy' }
+        text() {
+          return binding.value
+        },
+        action() {
+          return binding.arg === 'cut' ? 'cut' : 'copy'
+        },
       })
     }
   },
@@ -56,5 +64,5 @@ export const clipboard: DirectiveOptions = {
       }
       clipboardInstance = null
     }
-  }
+  },
 }

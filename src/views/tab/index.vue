@@ -3,15 +3,16 @@
     <el-tag>mounted times ：{{ createdTimes }}</el-tag>
     <el-alert
       :closable="false"
-      style="width:200px; display:inline-block; vertical-align:middle; margin-left:30px;"
+      style="
+        width: 200px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 30px;
+      "
       title="Tab with keep-alive"
       type="success"
     />
-    <el-tabs
-      v-model="activeName"
-      style="margin-top:15px"
-      type="border-card"
-    >
+    <el-tabs v-model="activeName" style="margin-top: 15px;" type="border-card">
       <el-tab-pane
         v-for="item in tabMapOptions"
         :key="item.key"
@@ -37,15 +38,15 @@ import TabPane from './components/TabPane.vue'
 @Component({
   name: 'Tab',
   components: {
-    TabPane
-  }
+    TabPane,
+  },
 })
 export default class extends Vue {
   private tabMapOptions = [
     { label: 'China', key: 'CN' },
     { label: 'USA', key: 'US' },
     { label: 'Japan', key: 'JP' },
-    { label: 'Eurozone', key: 'EU' }
+    { label: 'Eurozone', key: 'EU' },
   ]
 
   private activeName = 'CN'

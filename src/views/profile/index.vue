@@ -2,34 +2,19 @@
   <div class="app-container">
     <div v-if="user">
       <el-row :gutter="20">
-        <el-col
-          :span="6"
-          :xs="24"
-        >
+        <el-col :span="6" :xs="24">
           <user-card :user="user" />
         </el-col>
-        <el-col
-          :span="18"
-          :xs="24"
-        >
+        <el-col :span="18" :xs="24">
           <el-card>
             <el-tabs v-model="activeTab">
-              <el-tab-pane
-                label="Activity"
-                name="activity"
-              >
+              <el-tab-pane label="Activity" name="activity">
                 <activity />
               </el-tab-pane>
-              <el-tab-pane
-                label="Timeline"
-                name="timeline"
-              >
+              <el-tab-pane label="Timeline" name="timeline">
                 <timeline />
               </el-tab-pane>
-              <el-tab-pane
-                label="Account"
-                name="account"
-              >
+              <el-tab-pane label="Account" name="account">
                 <account :user="user" />
               </el-tab-pane>
             </el-tabs>
@@ -59,7 +44,7 @@ const defaultProfile: IProfile = {
   name: 'Loading...',
   email: 'Loading...',
   avatar: 'Loading...',
-  roles: 'Loading...'
+  roles: 'Loading...',
 }
 
 @Component({
@@ -68,8 +53,8 @@ const defaultProfile: IProfile = {
     Account,
     Activity,
     Timeline,
-    UserCard
-  }
+    UserCard,
+  },
 })
 export default class extends Vue {
   private user = defaultProfile
@@ -100,7 +85,7 @@ export default class extends Vue {
       name: this.name,
       email: this.email,
       avatar: this.avatar,
-      roles: this.roles.join(' | ')
+      roles: this.roles.join(' | '),
     }
   }
 }

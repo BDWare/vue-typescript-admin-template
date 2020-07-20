@@ -1,60 +1,31 @@
 <template>
   <div class="app-container">
-    <el-button
-      type="primary"
-      @click="handleCreateRole"
-    >
+    <el-button type="primary" @click="handleCreateRole">
       {{ $t('permission.createRole') }}
     </el-button>
 
-    <el-table
-      :data="rolesList"
-      style="width: 100%;margin-top:30px;"
-      border
-    >
-      <el-table-column
-        align="center"
-        label="Role Key"
-        width="220"
-      >
-        <template slot-scope="{row}">
+    <el-table :data="rolesList" style="width: 100%; margin-top: 30px;" border>
+      <el-table-column align="center" label="Role Key" width="220">
+        <template v-slot="{ row }">
           {{ row.key }}
         </template>
       </el-table-column>
-      <el-table-column
-        align="center"
-        label="Role Name"
-        width="220"
-      >
-        <template slot-scope="{row}">
+      <el-table-column align="center" label="Role Name" width="220">
+        <template v-slot="{ row }">
           {{ row.name }}
         </template>
       </el-table-column>
-      <el-table-column
-        align="header-center"
-        label="Description"
-      >
-        <template slot-scope="{row}">
+      <el-table-column align="header-center" label="Description">
+        <template v-slot="{ row }">
           {{ row.description }}
         </template>
       </el-table-column>
-      <el-table-column
-        align="center"
-        label="Operations"
-      >
-        <template slot-scope="scope">
-          <el-button
-            type="primary"
-            size="small"
-            @click="handleEdit(scope)"
-          >
+      <el-table-column align="center" label="Operations">
+        <template v-slot="scope">
+          <el-button type="primary" size="small" @click="handleEdit(scope)">
             {{ $t('permission.editPermission') }}
           </el-button>
-          <el-button
-            type="danger"
-            size="small"
-            @click="handleDelete(scope)"
-          >
+          <el-button type="danger" size="small" @click="handleDelete(scope)">
             {{ $t('permission.delete') }}
           </el-button>
         </template>
@@ -62,24 +33,17 @@
     </el-table>
 
     <el-dialog
-      :visible.sync="dialogVisible"
-      :title="dialogType==='edit'?'Edit Role':'New Role'"
+      v-model:visible="dialogVisible"
+      :title="dialogType === 'edit' ? 'Edit Role' : 'New Role'"
     >
-      <el-form
-        :model="role"
-        label-width="80px"
-        label-position="left"
-      >
+      <el-form :model="role" label-width="80px" label-position="left">
         <el-form-item label="Name">
-          <el-input
-            v-model="role.name"
-            placeholder="Role Name"
-          />
+          <el-input v-model="role.name" placeholder="Role Name" />
         </el-form-item>
         <el-form-item label="Desc">
           <el-input
             v-model="role.description"
-            :autosize="{minRows: 2, maxRows: 4}"
+            :autosize="{ minRows: 2, maxRows: 4 }"
             type="textarea"
             placeholder="Role Description"
           />
@@ -96,17 +60,11 @@
           />
         </el-form-item>
       </el-form>
-      <div style="text-align:right;">
-        <el-button
-          type="danger"
-          @click="dialogVisible=false"
-        >
+      <div style="text-align: right;">
+        <el-button type="danger" @click="dialogVisible = false">
           {{ $t('permission.cancel') }}
         </el-button>
-        <el-button
-          type="primary"
-          @click="confirmRole"
-        >
+        <el-button type="primary" @click="confirmRole">
           {{ $t('permission.confirm') }}
         </el-button>
       </div>
@@ -120,7 +78,13 @@ import { cloneDeep } from 'lodash'
 import { Component, Vue } from 'vue-property-decorator'
 import { RouteConfig } from 'vue-router'
 import { Tree } from 'element-ui'
-import { getRoutes, getRoles, createRole, deleteRole, updateRole } from '@/api/roles'
+import {
+  getRoutes,
+  getRoles,
+  createRole,
+  deleteRole,
+  updateRole,
+} from '@/api/roles'
 
 interface IRole {
   key: number
@@ -139,11 +103,11 @@ const defaultRole: IRole = {
   key: 0,
   name: '',
   description: '',
-  routes: []
+  routes: [],
 }
 
 @Component({
-  name: 'RolePermission'
+  name: 'RolePermission',
 })
 export default class extends Vue {
   private role = Object.assign({}, defaultRole)
@@ -155,7 +119,7 @@ export default class extends Vue {
   private checkStrictly = false
   private defaultProps = {
     children: 'children',
-    label: 'title'
+    label: 'title',
   }
 
   get routesTreeData() {
@@ -169,13 +133,17 @@ export default class extends Vue {
   }
 
   private async getRoutes() {
-    const { data } = await getRoutes({ /* Your params here */ })
+    const { data } = await getRoutes({
+      /* Your params here */
+    })
     this.serviceRoutes = data.routes
     this.reshapedRoutes = this.reshapeRoutes(data.routes)
   }
 
   private async getRoles() {
-    const { data } = await getRoles({ /* Your params here */ })
+    const { data } = await getRoles({
+      /* Your params here */
+    })
     this.rolesList = data.items
   }
 
@@ -185,7 +153,7 @@ export default class extends Vue {
       const tmp: IRoutesTreeData = {
         children: [],
         title: '',
-        path: ''
+        path: '',
       }
       tmp.title = this.$t(`route.${route.meta.title}`).toString()
       tmp.path = route.path
@@ -205,15 +173,22 @@ export default class extends Vue {
       if (route.meta && route.meta.hidden) {
         continue
       }
-      const onlyOneShowingChild = this.onlyOneShowingChild(route.children, route)
-      if (route.children && onlyOneShowingChild && (!route.meta || !route.meta.alwaysShow)) {
+      const onlyOneShowingChild = this.onlyOneShowingChild(
+        route.children,
+        route,
+      )
+      if (
+        route.children &&
+        onlyOneShowingChild &&
+        (!route.meta || !route.meta.alwaysShow)
+      ) {
         route = onlyOneShowingChild
       }
       const data: RouteConfig = {
         path: path.resolve(basePath, route.path),
         meta: {
-          title: route.meta && route.meta.title
-        }
+          title: route.meta && route.meta.title,
+        },
       }
       // Recursive generate child routes
       if (route.children) {
@@ -226,7 +201,7 @@ export default class extends Vue {
 
   private flattenRoutes(routes: RouteConfig[]) {
     let data: RouteConfig[] = []
-    routes.forEach(route => {
+    routes.forEach((route) => {
       data.push(route)
       if (route.children) {
         const temp = this.flattenRoutes(route.children)
@@ -241,7 +216,7 @@ export default class extends Vue {
   private handleCreateRole() {
     this.role = Object.assign({}, defaultRole)
     if (this.$refs.tree) {
-      (this.$refs.tree as Tree).setCheckedKeys([])
+      ;(this.$refs.tree as Tree).setCheckedKeys([])
     }
     this.dialogType = 'new'
     this.dialogVisible = true
@@ -255,8 +230,8 @@ export default class extends Vue {
     this.$nextTick(() => {
       const routes = this.flattenRoutes(this.reshapeRoutes(this.role.routes))
       const treeData = this.generateTreeData(routes)
-      const treeDataKeys = treeData.map(t => t.path);
-      (this.$refs.tree as Tree).setCheckedKeys(treeDataKeys)
+      const treeDataKeys = treeData.map((t) => t.path)
+      ;(this.$refs.tree as Tree).setCheckedKeys(treeDataKeys)
       // set checked state of a node not affects its father and child nodes
       this.checkStrictly = false
     })
@@ -267,28 +242,41 @@ export default class extends Vue {
     this.$confirm('Confirm to remove the role?', 'Warning', {
       confirmButtonText: 'Confirm',
       cancelButtonText: 'Cancel',
-      type: 'warning'
+      type: 'warning',
     })
-      .then(async() => {
+      .then(async () => {
         await deleteRole(row.key)
         this.rolesList.splice($index, 1)
         this.$message({
           type: 'success',
-          message: 'Deleted!'
+          message: 'Deleted!',
         })
       })
-      .catch(err => { console.error(err) })
+      .catch((err) => {
+        console.error(err)
+      })
   }
 
-  private generateTree(routes: RouteConfig[], basePath = '/', checkedKeys: string[]) {
+  private generateTree(
+    routes: RouteConfig[],
+    basePath = '/',
+    checkedKeys: string[],
+  ) {
     const res: RouteConfig[] = []
     for (const route of routes) {
       const routePath = path.resolve(basePath, route.path)
       // recursive child routes
       if (route.children) {
-        route.children = this.generateTree(route.children, routePath, checkedKeys)
+        route.children = this.generateTree(
+          route.children,
+          routePath,
+          checkedKeys,
+        )
       }
-      if (checkedKeys.includes(routePath) || (route.children && route.children.length >= 1)) {
+      if (
+        checkedKeys.includes(routePath) ||
+        (route.children && route.children.length >= 1)
+      ) {
         res.push(route)
       }
     }
@@ -299,7 +287,11 @@ export default class extends Vue {
     const isEdit = this.dialogType === 'edit'
     const checkedKeys = (this.$refs.tree as Tree).getCheckedKeys()
 
-    this.role.routes = this.generateTree(cloneDeep(this.serviceRoutes), '/', checkedKeys)
+    this.role.routes = this.generateTree(
+      cloneDeep(this.serviceRoutes),
+      '/',
+      checkedKeys,
+    )
 
     if (isEdit) {
       await updateRole(this.role.key, { role: this.role })
@@ -325,14 +317,19 @@ export default class extends Vue {
           <div>Role Name: ${name}</div>
           <div>Description: ${description}</div>
         `,
-      type: 'success'
+      type: 'success',
     })
   }
 
   // Reference: src/layout/components/Sidebar/SidebarItem.vue
-  private onlyOneShowingChild(children: RouteConfig[] = [], parent: RouteConfig) {
+  private onlyOneShowingChild(
+    children: RouteConfig[] = [],
+    parent: RouteConfig,
+  ) {
     let onlyOneChild = null
-    const showingChildren = children.filter(item => !item.meta || !item.meta.hidden)
+    const showingChildren = children.filter(
+      (item) => !item.meta || !item.meta.hidden,
+    )
     // When there is only one child route, the child route is displayed by default
     if (showingChildren.length === 1) {
       onlyOneChild = showingChildren[0]

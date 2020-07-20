@@ -2,26 +2,23 @@
   <div class="components-container">
     <aside>
       Markdown is based on
-      <a
-        href="https://github.com/nhnent/tui.editor"
-        target="_blank"
-      >tui.editor</a> ，simply wrapped with Vue.
+      <a href="https://github.com/nhnent/tui.editor" target="_blank"
+        >tui.editor</a
+      >
+      ，simply wrapped with Vue.
       <a
         target="_blank"
         href="https://armour.github.io/vue-typescript-admin-docs/features/components/markdown-editor.html"
       >
-        Documentation </a>
+        Documentation
+      </a>
     </aside>
 
     <div class="editor-container">
       <el-tag class="tag-title">
         Basic:
       </el-tag>
-      <markdown-editor
-        ref="markdownEditor"
-        v-model="content1"
-        height="300px"
-      />
+      <markdown-editor ref="markdownEditor" v-model="content1" height="300px" />
     </div>
 
     <div class="editor-container">
@@ -31,7 +28,7 @@
       <markdown-editor
         v-model="content2"
         height="200px"
-        :options="{hideModeSwitch: true, previewStyle: 'tab'}"
+        :options="{ hideModeSwitch: true, previewStyle: 'tab' }"
       />
     </div>
 
@@ -41,7 +38,7 @@
       </el-tag>
       <markdown-editor
         v-model="content3"
-        :options="{toolbarItems: ['heading','bold','italic']}"
+        :options="{ toolbarItems: ['heading', 'bold', 'italic'] }"
       />
     </div>
 
@@ -54,15 +51,11 @@
         title="You can change the language of the admin system to see the effect"
         type="success"
       />
-      <markdown-editor
-        v-model="content4"
-        height="300px"
-        :language="language"
-      />
+      <markdown-editor v-model="content4" height="300px" :language="language" />
     </div>
 
     <el-button
-      style="margin-top:80px;"
+      style="margin-top: 80px;"
       type="primary"
       icon="el-icon-document"
       @click="getHtml"
@@ -90,8 +83,8 @@ const content = `
 @Component({
   name: 'MarkdownDemo',
   components: {
-    MarkdownEditor
-  }
+    MarkdownEditor,
+  },
 })
 export default class extends Vue {
   private content1 = content
@@ -106,7 +99,7 @@ export default class extends Vue {
     zh: 'zh_CN',
     es: 'es_ES',
     ja: 'ja_JP',
-    ko: 'ko_KR'
+    ko: 'ko_KR',
   }
 
   mounted() {

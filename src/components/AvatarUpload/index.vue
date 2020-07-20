@@ -25,8 +25,8 @@ import { AppModule } from '@/store/modules/app'
 @Component({
   name: 'AvatarUpload',
   components: {
-    ImageCropUpload
-  }
+    ImageCropUpload,
+  },
 })
 export default class extends Vue {
   // You can add more Prop, see: https://github.com/dai-siki/vue-image-crop-upload#usage
@@ -44,7 +44,7 @@ export default class extends Vue {
     zh: 'zh',
     es: 'es-MX',
     ja: 'ja',
-    ko: 'ko'
+    ko: 'ko',
   }
 
   get show() {

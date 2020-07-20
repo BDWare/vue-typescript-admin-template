@@ -6,7 +6,7 @@
       type="file"
       accept=".xlsx, .xls"
       @change="handleClick"
-    >
+    />
     <div
       class="drop"
       @drop="handleDrop"
@@ -16,7 +16,7 @@
       Drop excel file here or
       <el-button
         :loading="loading"
-        style="margin-left:16px;"
+        style="margin-left: 16px;"
         size="mini"
         type="primary"
         @click="handleUpload"
@@ -32,7 +32,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 import XLSX from 'xlsx'
 
 @Component({
-  name: 'UploadExcel'
+  name: 'UploadExcel',
 })
 export default class extends Vue {
   @Prop({ required: true }) private beforeUpload!: Function
@@ -41,7 +41,7 @@ export default class extends Vue {
   private loading = false
   private excelData = {
     header: null,
-    results: null
+    results: null,
   }
 
   private generateData(header: any, results: any) {
@@ -80,7 +80,7 @@ export default class extends Vue {
   }
 
   private handleUpload() {
-    (this.$refs['excel-upload-input'] as HTMLInputElement).click()
+    ;(this.$refs['excel-upload-input'] as HTMLInputElement).click()
   }
 
   private handleClick(e: MouseEvent) {
@@ -92,7 +92,7 @@ export default class extends Vue {
   }
 
   private upload(rawFile: File) {
-    (this.$refs['excel-upload-input'] as HTMLInputElement).value = '' // Fixes can't select the same excel
+    ;(this.$refs['excel-upload-input'] as HTMLInputElement).value = '' // Fixes can't select the same excel
     if (!this.beforeUpload) {
       this.readerData(rawFile)
       return
@@ -106,7 +106,7 @@ export default class extends Vue {
   private readerData(rawFile: File) {
     this.loading = true
     const reader = new FileReader()
-    reader.onload = e => {
+    reader.onload = (e) => {
       const data = (e.target as FileReader).result
       const workbook = XLSX.read(data, { type: 'array' })
       const firstSheetName = workbook.SheetNames[0]
@@ -119,12 +119,13 @@ export default class extends Vue {
     reader.readAsArrayBuffer(rawFile)
   }
 
-  private getHeaderRow(sheet: { [key: string ]: any }) {
+  private getHeaderRow(sheet: { [key: string]: any }) {
     const headers: string[] = []
     const range = XLSX.utils.decode_range(sheet['!ref'])
     const R = range.s.r
     // start in the first row
-    for (let C = range.s.c; C <= range.e.c; ++C) { // walk every column in the range
+    for (let C = range.s.c; C <= range.e.c; ++C) {
+      // walk every column in the range
       const cell = sheet[XLSX.utils.encode_cell({ c: C, r: R })]
       // find the cell in the first row
       let hdr = ''

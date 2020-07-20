@@ -6,10 +6,7 @@
       class="back-to-ceiling"
       @click="backToTop"
     >
-      <svg-icon
-        name="back-top"
-        class="backTopIcon"
-      />
+      <svg-icon name="back-top" class="backTopIcon" />
     </div>
   </transition>
 </template>
@@ -18,7 +15,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'BackToTop'
+  name: 'BackToTop',
 })
 export default class extends Vue {
   @Prop({ default: 400 }) private visibilityHeight!: number
@@ -33,10 +30,11 @@ export default class extends Vue {
         height: '40px',
         'border-radius': '4px',
         'line-height': '45px',
-        background: '#e7eaf1'
+        background: '#e7eaf1',
       }
-    }
-  }) private customStyle!: object
+    },
+  })
+  private customStyle!: object
 
   private visible = false
   private isMoving = false

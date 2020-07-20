@@ -4,7 +4,7 @@ import { UserModule } from '@/store/modules/user'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
-  timeout: 5000
+  timeout: 5000,
   // withCredentials: true // send cookies when cross-domain requests
 })
 
@@ -19,7 +19,7 @@ service.interceptors.request.use(
   },
   (error) => {
     Promise.reject(error)
-  }
+  },
 )
 
 // Response interceptors
@@ -38,7 +38,7 @@ service.interceptors.response.use(
       Message({
         message: res.message || 'Error',
         type: 'error',
-        duration: 5 * 1000
+        duration: 5 * 1000,
       })
       if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
         MessageBox.confirm(
@@ -47,8 +47,8 @@ service.interceptors.response.use(
           {
             confirmButtonText: '重新登录',
             cancelButtonText: '取消',
-            type: 'warning'
-          }
+            type: 'warning',
+          },
         ).then(() => {
           UserModule.ResetToken()
           location.reload() // To prevent bugs from vue-router
@@ -63,10 +63,10 @@ service.interceptors.response.use(
     Message({
       message: error.message,
       type: 'error',
-      duration: 5 * 1000
+      duration: 5 * 1000,
     })
     return Promise.reject(error)
-  }
+  },
 )
 
 export default service

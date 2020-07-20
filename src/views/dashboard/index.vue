@@ -14,8 +14,8 @@ import EditorDashboard from './editor/index.vue'
   name: 'Dashboard',
   components: {
     AdminDashboard,
-    EditorDashboard
-  }
+    EditorDashboard,
+  },
 })
 export default class extends Vue {
   private currentRole = 'admin-dashboard'

@@ -31,8 +31,10 @@ export const elDraggableDialog: DirectiveOptions = {
 
       // Format may be "##%" or "##px"
       if (styleLeftStr.includes('%')) {
-        styleLeft = +document.body.clientWidth * (+styleLeftStr.replace(/%/g, '') / 100)
-        styleTop = +document.body.clientHeight * (+styleTopStr.replace(/%/g, '') / 100)
+        styleLeft =
+          +document.body.clientWidth * (+styleLeftStr.replace(/%/g, '') / 100)
+        styleTop =
+          +document.body.clientHeight * (+styleTopStr.replace(/%/g, '') / 100)
       } else {
         styleLeft = +styleLeftStr.replace(/px/g, '')
         styleTop = +styleTopStr.replace(/px/g, '')
@@ -43,19 +45,21 @@ export const elDraggableDialog: DirectiveOptions = {
         let top = e.clientY - disY
 
         // Handle edge cases
-        if (-(left) > minDragDomLeft) {
+        if (-left > minDragDomLeft) {
           left = -minDragDomLeft
         } else if (left > maxDragDomLeft) {
           left = maxDragDomLeft
         }
-        if (-(top) > minDragDomTop) {
+        if (-top > minDragDomTop) {
           top = -minDragDomTop
         } else if (top > maxDragDomTop) {
           top = maxDragDomTop
         }
 
         // Move current element
-        dragDom.style.cssText += `;left:${left + styleLeft}px;top:${top + styleTop}px;`
+        dragDom.style.cssText += `;left:${left + styleLeft}px;top:${
+          top + styleTop
+        }px;`
 
         // Emit onDialogDrag event
         // See https://stackoverflow.com/questions/49264426/vuejs-custom-directive-emit-event
@@ -71,5 +75,5 @@ export const elDraggableDialog: DirectiveOptions = {
         document.onmouseup = null
       }
     }
-  }
+  },
 }

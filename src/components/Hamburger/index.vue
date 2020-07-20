@@ -1,13 +1,6 @@
 <template>
-  <div
-    :class="[{'is-active': isActive}]"
-    @click="toggleClick"
-  >
-    <svg-icon
-      name="hamburger"
-      width="20"
-      height="20"
-    />
+  <div :class="[{ 'is-active': isActive }]" @click="toggleClick">
+    <svg-icon name="hamburger" width="20" height="20" />
   </div>
 </template>
 
@@ -15,13 +8,13 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'Hamburger'
+  name: 'Hamburger',
 })
 export default class extends Vue {
   @Prop({ default: false }) private isActive!: boolean
 
   private toggleClick() {
-    this.$emit('toggleClick')
+    this.$emit('toggle-click')
   }
 }
 </script>

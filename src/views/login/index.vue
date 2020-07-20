@@ -53,11 +53,10 @@
             @blur="capsTooltip = false"
             @keyup.enter.native="handleLogin"
           />
-          <span
-            class="show-pwd"
-            @click="showPwd"
-          >
-            <svg-icon :name="passwordType === 'password' ? 'eye-off' : 'eye-on'" />
+          <span class="show-pwd" @click="showPwd">
+            <svg-icon
+              :name="passwordType === 'password' ? 'eye-off' : 'eye-on'"
+            />
           </span>
         </el-form-item>
       </el-tooltip>
@@ -65,13 +64,13 @@
       <el-button
         :loading="loading"
         type="primary"
-        style="width:100%; margin-bottom:30px;"
+        style="width: 100%; margin-bottom: 30px;"
         @click.native.prevent="handleLogin"
       >
         {{ $t('login.logIn') }}
       </el-button>
 
-      <div style="position:relative">
+      <div style="position: relative;">
         <div class="tips">
           <span>{{ $t('login.username') }} : admin </span>
           <span>{{ $t('login.password') }} : {{ $t('login.any') }} </span>
@@ -84,21 +83,18 @@
         <el-button
           class="thirdparty-button"
           type="primary"
-          @click="showDialog=true"
+          @click="showDialog = true"
         >
           {{ $t('login.thirdparty') }}
         </el-button>
       </div>
     </el-form>
 
-    <el-dialog
-      :title="$t('login.thirdparty')"
-      :visible.sync="showDialog"
-    >
+    <el-dialog :title="$t('login.thirdparty')" v-model:visible="showDialog">
       {{ $t('login.thirdpartyTips') }}
-      <br>
-      <br>
-      <br>
+      <br />
+      <br />
+      <br />
       <social-sign />
     </el-dialog>
   </div>
@@ -118,8 +114,8 @@ import SocialSign from './components/SocialSignin.vue'
   name: 'Login',
   components: {
     LangSelect,
-    SocialSign
-  }
+    SocialSign,
+  },
 })
 export default class extends Vue {
   private validateUsername = (rule: any, value: string, callback: Function) => {
@@ -140,12 +136,12 @@ export default class extends Vue {
 
   private loginForm = {
     username: 'admin',
-    password: '111111'
+    password: '111111',
   }
 
   private loginRules = {
     username: [{ validator: this.validateUsername, trigger: 'blur' }],
-    password: [{ validator: this.validatePassword, trigger: 'blur' }]
+    password: [{ validator: this.validatePassword, trigger: 'blur' }],
   }
 
   private passwordType = 'password'
@@ -168,15 +164,16 @@ export default class extends Vue {
 
   mounted() {
     if (this.loginForm.username === '') {
-      (this.$refs.username as Input).focus()
+      ;(this.$refs.username as Input).focus()
     } else if (this.loginForm.password === '') {
-      (this.$refs.password as Input).focus()
+      ;(this.$refs.password as Input).focus()
     }
   }
 
   private checkCapslock(e: KeyboardEvent) {
     const { key } = e
-    this.capsTooltip = key !== null && key.length === 1 && (key >= 'A' && key <= 'Z')
+    this.capsTooltip =
+      key !== null && key.length === 1 && key >= 'A' && key <= 'Z'
   }
 
   private showPwd() {
@@ -186,18 +183,18 @@ export default class extends Vue {
       this.passwordType = 'password'
     }
     this.$nextTick(() => {
-      (this.$refs.password as Input).focus()
+      ;(this.$refs.password as Input).focus()
     })
   }
 
   private handleLogin() {
-    (this.$refs.loginForm as ElForm).validate(async(valid: boolean) => {
+    ;(this.$refs.loginForm as ElForm).validate(async (valid: boolean) => {
       if (valid) {
         this.loading = true
         await UserModule.Login(this.loginForm)
         this.$router.push({
           path: this.redirect || '/',
-          query: this.otherQuery
+          query: this.otherQuery,
         })
         // Just to simulate the time of the request
         setTimeout(() => {
@@ -224,8 +221,12 @@ export default class extends Vue {
 // References: https://www.zhangxinxu.com/wordpress/2018/01/css-caret-color-first-line/
 @supports (-webkit-mask: none) and (not (cater-color: $loginCursorColor)) {
   .login-container .el-input {
-    input { color: $loginCursorColor; }
-    input::first-line { color: $lightGray; }
+    input {
+      color: $loginCursorColor;
+    }
+    input::first-line {
+      color: $lightGray;
+    }
   }
 }
 

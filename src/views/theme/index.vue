@@ -1,7 +1,9 @@
 <template>
   <div class="app-container">
     <el-card class="box-card">
+      <!-- eslint-disable -->
       <div slot="header">
+        <!-- eslint-enable -->
         <a
           class="link-type link-title"
           target="_blank"
@@ -13,7 +15,7 @@
       <div class="box-item">
         <span class="field-label">{{ $t('theme.change') }} : </span>
         <el-switch v-model="theme" />
-        <aside style="margin-top:15px;">
+        <aside style="margin-top: 15px;">
           {{ $t('theme.tips') }}
         </aside>
       </div>
@@ -38,22 +40,10 @@
     </div>
 
     <div class="block">
-      <el-button
-        type="primary"
-        icon="el-icon-edit"
-      />
-      <el-button
-        type="primary"
-        icon="el-icon-share"
-      />
-      <el-button
-        type="primary"
-        icon="el-icon-delete"
-      />
-      <el-button
-        type="primary"
-        icon="el-icon-search"
-      >
+      <el-button type="primary" icon="el-icon-edit" />
+      <el-button type="primary" icon="el-icon-share" />
+      <el-button type="primary" icon="el-icon-delete" />
+      <el-button type="primary" icon="el-icon-search">
         Search
       </el-button>
       <el-button type="primary">
@@ -99,7 +89,7 @@ import { toggleClass } from '@/utils'
 import '@/assets/custom-theme/index.css' // the theme changed version element-ui css
 
 @Component({
-  name: 'Theme'
+  name: 'Theme',
 })
 export default class extends Vue {
   private theme = false
@@ -108,7 +98,7 @@ export default class extends Vue {
     { name: 'Tag Two', type: 'info' },
     { name: 'Tag Three', type: 'success' },
     { name: 'Tag Four', type: 'warning' },
-    { name: 'Tag Five', type: 'danger' }
+    { name: 'Tag Five', type: 'danger' },
   ]
 
   private slideValue = 50

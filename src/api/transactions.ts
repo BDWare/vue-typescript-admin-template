@@ -4,5 +4,5 @@ export const getTransactions = (params: any) =>
   request({
     url: '/transactions',
     method: 'get',
-    params
+    params,
   })

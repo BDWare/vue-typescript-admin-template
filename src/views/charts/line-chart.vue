@@ -1,9 +1,6 @@
 <template>
   <div class="chart-container">
-    <line-chart
-      height="100%"
-      width="100%"
-    />
+    <line-chart height="100%" width="100%" />
   </div>
 </template>
 
@@ -14,8 +11,8 @@ import LineChart from '@/components/Charts/LineChart.vue'
 @Component({
   name: 'LineChartDemo',
   components: {
-    LineChart
-  }
+    LineChart,
+  },
 })
 export default class extends Vue {}
 </script>

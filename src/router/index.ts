@@ -48,29 +48,38 @@ export const constantRoutes: RouteConfig[] = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import(/* webpackChunkName: "redirect" */ '@/views/redirect/index.vue')
-      }
-    ]
+        component: () =>
+          import(
+            /* webpackChunkName: "redirect" */ '@/views/redirect/index.vue'
+          ),
+      },
+    ],
   },
   {
     path: '/login',
-    component: () => import(/* webpackChunkName: "login" */ '@/views/login/index.vue'),
-    meta: { hidden: true }
+    component: () =>
+      import(/* webpackChunkName: "login" */ '@/views/login/index.vue'),
+    meta: { hidden: true },
   },
   {
     path: '/auth-redirect',
-    component: () => import(/* webpackChunkName: "auth-redirect" */ '@/views/login/auth-redirect.vue'),
-    meta: { hidden: true }
+    component: () =>
+      import(
+        /* webpackChunkName: "auth-redirect" */ '@/views/login/auth-redirect.vue'
+      ),
+    meta: { hidden: true },
   },
   {
     path: '/404',
-    component: () => import(/* webpackChunkName: "404" */ '@/views/error-page/404.vue'),
-    meta: { hidden: true }
+    component: () =>
+      import(/* webpackChunkName: "404" */ '@/views/error-page/404.vue'),
+    meta: { hidden: true },
   },
   {
     path: '/401',
-    component: () => import(/* webpackChunkName: "401" */ '@/views/error-page/401.vue'),
-    meta: { hidden: true }
+    component: () =>
+      import(/* webpackChunkName: "401" */ '@/views/error-page/401.vue'),
+    meta: { hidden: true },
   },
   {
     path: '/',
@@ -79,15 +88,18 @@ export const constantRoutes: RouteConfig[] = [
     children: [
       {
         path: 'dashboard',
-        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'
+          ),
         name: 'Dashboard',
         meta: {
           title: 'dashboard',
           icon: 'dashboard',
-          affix: true
-        }
-      }
-    ]
+          affix: true,
+        },
+      },
+    ],
   },
   // {
   //   path: '/documentation',
@@ -108,15 +120,16 @@ export const constantRoutes: RouteConfig[] = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "guide" */ '@/views/guide/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "guide" */ '@/views/guide/index.vue'),
         name: 'Guide',
         meta: {
           title: 'guide',
           icon: 'guide',
-          noCache: true
-        }
-      }
-    ]
+          noCache: true,
+        },
+      },
+    ],
   },
   {
     path: '/profile',
@@ -126,22 +139,23 @@ export const constantRoutes: RouteConfig[] = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "profile" */ '@/views/profile/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "profile" */ '@/views/profile/index.vue'),
         name: 'Profile',
         meta: {
           title: 'profile',
           icon: 'user',
-          noCache: true
-        }
-      }
-    ]
-  }
+          noCache: true,
+        },
+      },
+    ],
+  },
 ]
 
 /**
  * asyncRoutes
  * the routes that need to be dynamically loaded based on user roles
-*/
+ */
 export const asyncRoutes: RouteConfig[] = [
   {
     path: '/permission',
@@ -151,37 +165,46 @@ export const asyncRoutes: RouteConfig[] = [
       title: 'permission',
       icon: 'lock',
       roles: ['admin', 'editor'], // you can set roles in root nav
-      alwaysShow: true // will always show the root menu
+      alwaysShow: true, // will always show the root menu
     },
     children: [
       {
         path: 'page',
-        component: () => import(/* webpackChunkName: "permission-page" */ '@/views/permission/page.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "permission-page" */ '@/views/permission/page.vue'
+          ),
         name: 'PagePermission',
         meta: {
           title: 'pagePermission',
-          roles: ['admin'] // or you can only set roles in sub nav
-        }
+          roles: ['admin'], // or you can only set roles in sub nav
+        },
       },
       {
         path: 'directive',
-        component: () => import(/* webpackChunkName: "permission-directive" */ '@/views/permission/directive.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "permission-directive" */ '@/views/permission/directive.vue'
+          ),
         name: 'DirectivePermission',
         meta: {
-          title: 'directivePermission'
+          title: 'directivePermission',
           // if do not set roles, means: this page does not require permission
-        }
+        },
       },
       {
         path: 'role',
-        component: () => import(/* webpackChunkName: "permission-role" */ '@/views/permission/role.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "permission-role" */ '@/views/permission/role.vue'
+          ),
         name: 'RolePermission',
         meta: {
           title: 'rolePermission',
-          roles: ['admin']
-        }
-      }
-    ]
+          roles: ['admin'],
+        },
+      },
+    ],
   },
   {
     path: '/icon',
@@ -189,15 +212,16 @@ export const asyncRoutes: RouteConfig[] = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "icons" */ '@/views/icons/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "icons" */ '@/views/icons/index.vue'),
         name: 'Icons',
         meta: {
           title: 'icons',
           icon: 'icon',
-          noCache: true
-        }
-      }
-    ]
+          noCache: true,
+        },
+      },
+    ],
   },
   /** when your routing map is too long, you can split it into small modules **/
   componentsRouter,
@@ -210,39 +234,48 @@ export const asyncRoutes: RouteConfig[] = [
     redirect: '/example/list',
     meta: {
       title: 'example',
-      icon: 'example'
+      icon: 'example',
     },
     children: [
       {
         path: 'create',
-        component: () => import(/* webpackChunkName: "example-create" */ '@/views/example/create.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "example-create" */ '@/views/example/create.vue'
+          ),
         name: 'CreateArticle',
         meta: {
           title: 'createArticle',
-          icon: 'edit'
-        }
+          icon: 'edit',
+        },
       },
       {
         path: 'edit/:id(\\d+)',
-        component: () => import(/* webpackChunkName: "example-edit" */ '@/views/example/edit.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "example-edit" */ '@/views/example/edit.vue'
+          ),
         name: 'EditArticle',
         meta: {
           title: 'editArticle',
           noCache: true,
           activeMenu: '/example/list',
-          hidden: true
-        }
+          hidden: true,
+        },
       },
       {
         path: 'list',
-        component: () => import(/* webpackChunkName: "example-list" */ '@/views/example/list.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "example-list" */ '@/views/example/list.vue'
+          ),
         name: 'ArticleList',
         meta: {
           title: 'articleList',
-          icon: 'list'
-        }
-      }
-    ]
+          icon: 'list',
+        },
+      },
+    ],
   },
   {
     path: '/tab',
@@ -250,14 +283,15 @@ export const asyncRoutes: RouteConfig[] = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "tab" */ '@/views/tab/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "tab" */ '@/views/tab/index.vue'),
         name: 'Tab',
         meta: {
           title: 'tab',
-          icon: 'tab'
-        }
-      }
-    ]
+          icon: 'tab',
+        },
+      },
+    ],
   },
   {
     path: '/error',
@@ -265,28 +299,34 @@ export const asyncRoutes: RouteConfig[] = [
     redirect: 'noredirect',
     meta: {
       title: 'errorPages',
-      icon: '404'
+      icon: '404',
     },
     children: [
       {
         path: '401',
-        component: () => import(/* webpackChunkName: "error-page-401" */ '@/views/error-page/401.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "error-page-401" */ '@/views/error-page/401.vue'
+          ),
         name: 'Page401',
         meta: {
           title: 'page401',
-          noCache: true
-        }
+          noCache: true,
+        },
       },
       {
         path: '404',
-        component: () => import(/* webpackChunkName: "error-page-404" */ '@/views/error-page/404.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "error-page-404" */ '@/views/error-page/404.vue'
+          ),
         name: 'Page404',
         meta: {
           title: 'page404',
-          noCache: true
-        }
-      }
-    ]
+          noCache: true,
+        },
+      },
+    ],
   },
   {
     path: '/error-log',
@@ -295,14 +335,17 @@ export const asyncRoutes: RouteConfig[] = [
     children: [
       {
         path: 'log',
-        component: () => import(/* webpackChunkName: "error-log" */ '@/views/error-log/index.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "error-log" */ '@/views/error-log/index.vue'
+          ),
         name: 'ErrorLog',
         meta: {
           title: 'errorLog',
-          icon: 'bug'
-        }
-      }
-    ]
+          icon: 'bug',
+        },
+      },
+    ],
   },
   {
     path: '/excel',
@@ -310,34 +353,46 @@ export const asyncRoutes: RouteConfig[] = [
     redirect: '/excel/export-excel',
     meta: {
       title: 'excel',
-      icon: 'excel'
+      icon: 'excel',
     },
     children: [
       {
         path: 'export-excel',
-        component: () => import(/* webpackChunkName: "export-excel" */ '@/views/excel/export-excel.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "export-excel" */ '@/views/excel/export-excel.vue'
+          ),
         name: 'ExportExcel',
-        meta: { title: 'exportExcel' }
+        meta: { title: 'exportExcel' },
       },
       {
         path: 'export-selected-excel',
-        component: () => import(/* webpackChunkName: "select-excel" */ '@/views/excel/select-excel.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "select-excel" */ '@/views/excel/select-excel.vue'
+          ),
         name: 'SelectExcel',
-        meta: { title: 'selectExcel' }
+        meta: { title: 'selectExcel' },
       },
       {
         path: 'export-merge-header',
-        component: () => import(/* webpackChunkName: "merge-header" */ '@/views/excel/merge-header.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "merge-header" */ '@/views/excel/merge-header.vue'
+          ),
         name: 'MergeHeader',
-        meta: { title: 'mergeHeader' }
+        meta: { title: 'mergeHeader' },
       },
       {
         path: 'upload-excel',
-        component: () => import(/* webpackChunkName: "upload-excel" */ '@/views/excel/upload-excel.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "upload-excel" */ '@/views/excel/upload-excel.vue'
+          ),
         name: 'UploadExcel',
-        meta: { title: 'uploadExcel' }
-      }
-    ]
+        meta: { title: 'uploadExcel' },
+      },
+    ],
   },
   {
     path: '/zip',
@@ -346,16 +401,17 @@ export const asyncRoutes: RouteConfig[] = [
     meta: {
       title: 'zip',
       icon: 'zip',
-      alwaysShow: true // will always show the root menu
+      alwaysShow: true, // will always show the root menu
     },
     children: [
       {
         path: 'download',
-        component: () => import(/* webpackChunkName: "zip" */ '@/views/zip/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "zip" */ '@/views/zip/index.vue'),
         name: 'ExportZip',
-        meta: { title: 'exportZip' }
-      }
-    ]
+        meta: { title: 'exportZip' },
+      },
+    ],
   },
   {
     path: '/pdf',
@@ -364,19 +420,23 @@ export const asyncRoutes: RouteConfig[] = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "pdf" */ '@/views/pdf/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "pdf" */ '@/views/pdf/index.vue'),
         name: 'PDF',
         meta: {
           title: 'pdf',
-          icon: 'pdf'
-        }
-      }
-    ]
+          icon: 'pdf',
+        },
+      },
+    ],
   },
   {
     path: '/pdf-download-example',
-    component: () => import(/* webpackChunkName: "pdf-download-example" */ '@/views/pdf/download.vue'),
-    meta: { hidden: true }
+    component: () =>
+      import(
+        /* webpackChunkName: "pdf-download-example" */ '@/views/pdf/download.vue'
+      ),
+    meta: { hidden: true },
   },
   {
     path: '/theme',
@@ -385,14 +445,15 @@ export const asyncRoutes: RouteConfig[] = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "theme" */ '@/views/theme/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "theme" */ '@/views/theme/index.vue'),
         name: 'Theme',
         meta: {
           title: 'theme',
-          icon: 'theme'
-        }
-      }
-    ]
+          icon: 'theme',
+        },
+      },
+    ],
   },
   {
     path: '/clipboard',
@@ -401,14 +462,17 @@ export const asyncRoutes: RouteConfig[] = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "clipboard" */ '@/views/clipboard/index.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "clipboard" */ '@/views/clipboard/index.vue'
+          ),
         name: 'Clipboard',
         meta: {
           title: 'clipboard',
-          icon: 'clipboard'
-        }
-      }
-    ]
+          icon: 'clipboard',
+        },
+      },
+    ],
   },
   {
     path: '/i18n',
@@ -416,48 +480,52 @@ export const asyncRoutes: RouteConfig[] = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "i18n-demo" */ '@/views/i18n-demo/index.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "i18n-demo" */ '@/views/i18n-demo/index.vue'
+          ),
         name: 'I18n',
         meta: {
           title: 'i18n',
-          icon: 'international'
-        }
-      }
-    ]
+          icon: 'international',
+        },
+      },
+    ],
   },
   {
     path: 'https://github.com/Armour/vue-typescript-admin-template',
     meta: {
       title: 'externalLink',
-      icon: 'link'
-    }
+      icon: 'link',
+    },
   },
   {
     path: '*',
     redirect: '/404',
-    meta: { hidden: true }
-  }
+    meta: { hidden: true },
+  },
 ]
 
-const createRouter = () => new Router({
-  // mode: 'history',  // Disabled due to Github Pages doesn't support this, enable this if you need.
-  scrollBehavior: (to, from, savedPosition) => {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { x: 0, y: 0 }
-    }
-  },
-  base: process.env.BASE_URL,
-  routes: constantRoutes
-})
+const createRouter = () =>
+  new Router({
+    // mode: 'history',  // Disabled due to Github Pages doesn't support this, enable this if you need.
+    scrollBehavior: (to, from, savedPosition) => {
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        return { x: 0, y: 0 }
+      }
+    },
+    base: process.env.BASE_URL,
+    routes: constantRoutes,
+  })
 
 const router = createRouter()
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
-  const newRouter = createRouter();
-  (router as any).matcher = (newRouter as any).matcher // reset router
+  const newRouter = createRouter()
+  ;(router as any).matcher = (newRouter as any).matcher // reset router
 }
 
 export default router

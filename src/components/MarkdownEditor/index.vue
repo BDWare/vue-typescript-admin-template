@@ -10,15 +10,17 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import defaultOptions from './default-options'
 import TuiEditor from 'tui-editor'
 
-const defaultId = () => 'markdown-editor-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '')
+const defaultId = () =>
+  'markdown-editor-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '')
 
 @Component({
-  name: 'MarkdownEditor'
+  name: 'MarkdownEditor',
 })
 export default class extends Vue {
   @Prop({ required: true }) private value!: string
   @Prop({ default: defaultId }) private id!: string
-  @Prop({ default: () => defaultOptions }) private options!: tuiEditor.IEditorOptions
+  @Prop({ default: () => defaultOptions })
+  private options!: tuiEditor.IEditorOptions
   @Prop({ default: 'markdown' }) private mode!: string
   @Prop({ default: '300px' }) private height!: string
   // https://github.com/nhnent/tui.editor/tree/master/src/js/langs
@@ -75,8 +77,8 @@ export default class extends Vue {
     const editorElement = document.getElementById(this.id)
     if (!editorElement) return
     this.markdownEditor = new TuiEditor({
+      ...this.editorOptions,
       el: editorElement,
-      ...this.editorOptions
     })
     if (this.value) {
       this.markdownEditor.setValue(this.value)

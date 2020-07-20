@@ -1,9 +1,6 @@
 <template>
   <div class="chart-container">
-    <mixed-chart
-      height="100%"
-      width="100%"
-    />
+    <mixed-chart height="100%" width="100%" />
   </div>
 </template>
 
@@ -14,8 +11,8 @@ import MixedChart from '@/components/Charts/MixedChart.vue'
 @Component({
   name: 'MixedChartDemo',
   components: {
-    MixedChart
-  }
+    MixedChart,
+  },
 })
 export default class extends Vue {}
 </script>

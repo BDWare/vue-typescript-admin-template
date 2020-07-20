@@ -1,13 +1,10 @@
 <template>
-  <div style="display:inline-block;">
-    <label
-      class="radio-label"
-      style="padding-left:0;"
-    >Filename: </label>
+  <div style="display: inline-block;">
+    <label class="radio-label" style="padding-left: 0;">Filename: </label>
     <el-input
       v-model="filename"
       :placeholder="$t('excel.placeholder')"
-      style="width:345px;"
+      style="width: 345px;"
       prefix-icon="el-icon-document"
     />
   </div>
@@ -17,7 +14,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'FilenameOption'
+  name: 'FilenameOption',
 })
 export default class extends Vue {
   @Prop({ required: true }) private value!: string

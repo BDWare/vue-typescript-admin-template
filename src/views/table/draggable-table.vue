@@ -9,52 +9,36 @@
       border
       fit
       highlight-current-row
-      style="width: 100%"
+      style="width: 100%;"
     >
-      <el-table-column
-        align="center"
-        label="ID"
-        width="65"
-      >
-        <template slot-scope="{row}">
+      <el-table-column align="center" label="ID" width="65">
+        <template v-slot="{ row }">
           <span>{{ row.id }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column
-        width="180px"
-        align="center"
-        label="Date"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="180px" align="center" label="Date">
+        <template v-slot="{ row }">
+          <!-- eslint-disable -->
           <span>{{ row.timestamp | parseTime }}</span>
+          <!-- eslint-enable -->
         </template>
       </el-table-column>
 
-      <el-table-column
-        min-width="300px"
-        label="Title"
-      >
-        <template slot-scope="{row}">
+      <el-table-column min-width="300px" label="Title">
+        <template v-slot="{ row }">
           <span>{{ row.title }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column
-        width="180px"
-        align="center"
-        label="Author"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="180px" align="center" label="Author">
+        <template v-slot="{ row }">
           <span>{{ row.author }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column
-        width="105px"
-        label="Importance"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="105px" label="Importance">
+        <template v-slot="{ row }">
           <svg-icon
             v-for="n in +row.importance"
             :key="n"
@@ -64,33 +48,22 @@
         </template>
       </el-table-column>
 
-      <el-table-column
-        align="center"
-        label="Readings"
-        width="95"
-      >
-        <template slot-scope="{row}">
+      <el-table-column align="center" label="Readings" width="95">
+        <template v-slot="{ row }">
           <span>{{ row.pageviews }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column
-        class-name="status-col"
-        label="Status"
-        width="110"
-      >
-        <template slot-scope="{row}">
+      <el-table-column class-name="status-col" label="Status" width="110">
+        <template v-slot="{ row }">
+          <!-- eslint-disable -->
           <el-tag :type="row.status | articleStatusFilter">
             {{ row.status }}
-          </el-tag>
+          </el-tag><!-- eslint-enable -->
         </template>
       </el-table-column>
 
-      <el-table-column
-        align="center"
-        label="Drag"
-        width="80"
-      >
+      <el-table-column align="center" label="Drag" width="80">
         <svg-icon
           class="draggable-handler"
           name="drag"
@@ -101,9 +74,10 @@
     </el-table>
     <!-- $t is vue-i18n global function to translate lang (lang in @/lang)  -->
     <div class="show-d">
-      <el-tag style="margin-right:12px;">
+      <el-tag style="margin-right: 12px;">
         {{ $t('table.dragTips1') }} :
-      </el-tag> {{ oldList }}
+      </el-tag>
+      {{ oldList }}
     </div>
     <div class="show-d">
       <el-tag>{{ $t('table.dragTips2') }} :</el-tag> {{ newList }}
@@ -118,7 +92,7 @@ import { getArticles } from '@/api/articles'
 import { IArticleData } from '@/api/types'
 
 @Component({
-  name: 'DraggableTable'
+  name: 'DraggableTable',
 })
 export default class extends Vue {
   private list: IArticleData[] = []
@@ -128,7 +102,7 @@ export default class extends Vue {
   private newList: number[] = []
   private listQuery = {
     page: 1,
-    limit: 10
+    limit: 10,
   }
 
   private sortable: Sortable | null = null
@@ -154,18 +128,23 @@ export default class extends Vue {
   }
 
   private setSort() {
-    const el = (this.$refs.draggableTable as Vue).$el.querySelectorAll('.el-table__body-wrapper > table > tbody')[0] as HTMLElement
+    const el = (this.$refs.draggableTable as Vue).$el.querySelectorAll(
+      '.el-table__body-wrapper > table > tbody',
+    )[0] as HTMLElement
     this.sortable = Sortable.create(el, {
       ghostClass: 'sortable-ghost', // Class name for the drop placeholder
-      onEnd: evt => {
-        if (typeof (evt.oldIndex) !== 'undefined' && typeof (evt.newIndex) !== 'undefined') {
+      onEnd: (evt) => {
+        if (
+          typeof evt.oldIndex !== 'undefined' &&
+          typeof evt.newIndex !== 'undefined'
+        ) {
           const targetRow = this.list.splice(evt.oldIndex, 1)[0]
           this.list.splice(evt.newIndex, 0, targetRow)
           // for show the changes, you can delete in you code
           const tempIndex = this.newList.splice(evt.oldIndex, 1)[0]
           this.newList.splice(evt.newIndex, 0, tempIndex)
         }
-      }
+      },
     })
   }
 }
@@ -173,9 +152,9 @@ export default class extends Vue {
 
 <style lang="scss">
 .sortable-ghost {
-  opacity: .8;
-  color: #fff!important;
-  background: #42b983!important;
+  opacity: 0.8;
+  color: #fff !important;
+  background: #42b983 !important;
 }
 </style>
 

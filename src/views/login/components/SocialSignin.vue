@@ -1,22 +1,14 @@
 <template>
   <div class="social-signup-container">
-    <div
-      class="sign-btn"
-      @click="wechatHandleClick('wechat')"
-    >
-      <span class="wx-svg-container"><svg-icon
-        name="wechat"
-        class="icon"
-      /></span> 微信
+    <div class="sign-btn" @click="wechatHandleClick('wechat')">
+      <span class="wx-svg-container"
+        ><svg-icon name="wechat" class="icon"
+      /></span>
+      微信
     </div>
-    <div
-      class="sign-btn"
-      @click="tencentHandleClick('tencent')"
-    >
-      <span class="qq-svg-container"><svg-icon
-        name="qq"
-        class="icon"
-      /></span> QQ
+    <div class="sign-btn" @click="tencentHandleClick('tencent')">
+      <span class="qq-svg-container"><svg-icon name="qq" class="icon" /></span>
+      QQ
     </div>
   </div>
 </template>
@@ -26,7 +18,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'SocialSignin'
+  name: 'SocialSignin',
 })
 export default class extends Vue {
   private wechatHandleClick(param: string) {
@@ -80,7 +72,7 @@ export default class extends Vue {
   }
 
   .qq-svg-container {
-    background-color: #6BA2D6;
+    background-color: #6ba2d6;
     margin-left: 50px;
   }
 }

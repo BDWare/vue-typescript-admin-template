@@ -6,43 +6,28 @@
       border
       fit
       highlight-current-row
-      style="width: 100%"
+      style="width: 100%;"
     >
-      <el-table-column
-        width="80"
-        align="center"
-        label="ID"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="80" align="center" label="ID">
+        <template v-slot="{ row }">
           <span>{{ row.id }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column
-        width="180px"
-        align="center"
-        label="Date"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="180px" align="center" label="Date">
+        <template v-slot="{ row }">
           <span>{{ row.timestamp | parseTime }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column
-        width="180px"
-        align="center"
-        label="Author"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="180px" align="center" label="Author">
+        <template v-slot="{ row }">
           <span>{{ row.author }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column
-        width="105px"
-        label="Importance"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="105px" label="Importance">
+        <template v-slot="{ row }">
           <svg-icon
             v-for="n in +row.importance"
             :key="n"
@@ -52,44 +37,26 @@
         </template>
       </el-table-column>
 
-      <el-table-column
-        class-name="status-col"
-        label="Status"
-        width="110"
-      >
-        <template slot-scope="{row}">
+      <el-table-column class-name="status-col" label="Status" width="110">
+        <template v-slot="{ row }">
           <el-tag :type="row.status | articleStatusFilter">
             {{ row.status }}
           </el-tag>
         </template>
       </el-table-column>
 
-      <el-table-column
-        min-width="300px"
-        label="Title"
-      >
-        <template slot-scope="{row}">
-          <router-link
-            :to="'/example/edit/'+row.id"
-            class="link-type"
-          >
+      <el-table-column min-width="300px" label="Title">
+        <template v-slot="{ row }">
+          <router-link :to="'/example/edit/' + row.id" class="link-type">
             <span>{{ row.title }}</span>
           </router-link>
         </template>
       </el-table-column>
 
-      <el-table-column
-        align="center"
-        label="Actions"
-        width="120"
-      >
-        <template slot-scope="{row}">
-          <router-link :to="'/example/edit/'+row.id">
-            <el-button
-              type="primary"
-              size="small"
-              icon="el-icon-edit"
-            >
+      <el-table-column align="center" label="Actions" width="120">
+        <template v-slot="{ row }">
+          <router-link :to="'/example/edit/' + row.id">
+            <el-button type="primary" size="small" icon="el-icon-edit">
               Edit
             </el-button>
           </router-link>
@@ -98,10 +65,10 @@
     </el-table>
 
     <pagination
-      v-show="total>0"
+      v-show="total > 0"
       :total="total"
-      :page.sync="listQuery.page"
-      :limit.sync="listQuery.limit"
+      v-model:page="listQuery.page"
+      v-model:limit="listQuery.limit"
       @pagination="getList"
     />
   </div>
@@ -116,8 +83,8 @@ import Pagination from '@/components/Pagination/index.vue'
 @Component({
   name: 'ArticleList',
   components: {
-    Pagination
-  }
+    Pagination,
+  },
 })
 export default class extends Vue {
   private total = 0
@@ -125,7 +92,7 @@ export default class extends Vue {
   private listLoading = true
   private listQuery = {
     page: 1,
-    limit: 20
+    limit: 20,
   }
 
   created() {

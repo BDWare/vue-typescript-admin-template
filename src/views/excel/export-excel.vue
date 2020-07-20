@@ -6,7 +6,7 @@
       <book-type-option v-model="bookType" />
       <el-button
         :loading="downloadLoading"
-        style="margin:0 0 20px 20px;"
+        style="margin: 0 0 20px 20px;"
         type="primary"
         icon="el-icon-document"
         @click="handleDownload"
@@ -16,7 +16,7 @@
       <a
         href="https://armour.github.io/vue-typescript-admin-docs/features/components/excel.html"
         target="_blank"
-        style="margin-left:15px;"
+        style="margin-left: 15px;"
       >
         <el-tag type="info">Documentation</el-tag>
       </a>
@@ -30,44 +30,28 @@
       fit
       highlight-current-row
     >
-      <el-table-column
-        width="95"
-        align="center"
-        label="Id"
-      >
-        <template slot-scope="{$index}">
+      <el-table-column width="95" align="center" label="Id">
+        <template v-slot="{ $index }">
           {{ $index }}
         </template>
       </el-table-column>
       <el-table-column label="Title">
-        <template slot-scope="{row}">
+        <template v-slot="{ row }">
           {{ row.title }}
         </template>
       </el-table-column>
-      <el-table-column
-        label="Author"
-        width="180"
-        align="center"
-      >
-        <template slot-scope="{row}">
+      <el-table-column label="Author" width="180" align="center">
+        <template v-slot="{ row }">
           <el-tag>{{ row.author }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column
-        width="115"
-        align="center"
-        label="Readings"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="115" align="center" label="Readings">
+        <template v-slot="{ row }">
           {{ row.pageviews }}
         </template>
       </el-table-column>
-      <el-table-column
-        width="220"
-        align="center"
-        label="Date"
-      >
-        <template slot-scope="{row}">
+      <el-table-column width="220" align="center" label="Date">
+        <template v-slot="{ row }">
           <i class="el-icon-time" />
           <span>{{ row.timestamp | parseTime }}</span>
         </template>
@@ -91,8 +75,8 @@ import BookTypeOption from './components/BookTypeOption.vue'
   components: {
     AutoWidthOption,
     BookTypeOption,
-    FilenameOption
-  }
+    FilenameOption,
+  },
 })
 export default class extends Vue {
   private list: IArticleData[] = []
@@ -108,7 +92,9 @@ export default class extends Vue {
 
   private async fetchData() {
     this.listLoading = true
-    const { data } = await getArticles({ /* Your params here */ })
+    const { data } = await getArticles({
+      /* Your params here */
+    })
     this.list = data.items
     // Just to simulate the time of the request
     setTimeout(() => {
@@ -122,7 +108,15 @@ export default class extends Vue {
     const filterVal = ['id', 'title', 'author', 'pageviews', 'timestamp']
     const list = this.list
     const data = formatJson(filterVal, list)
-    exportJson2Excel(tHeader, data, this.filename !== '' ? this.filename : undefined, undefined, undefined, this.autoWidth, this.bookType)
+    exportJson2Excel(
+      tHeader,
+      data,
+      this.filename !== '' ? this.filename : undefined,
+      undefined,
+      undefined,
+      this.autoWidth,
+      this.bookType,
+    )
     this.downloadLoading = false
   }
 }

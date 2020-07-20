@@ -1,32 +1,21 @@
 <template>
-  <el-table
-    :data="list"
-    style="width: 100%;padding-top: 15px;"
-  >
-    <el-table-column
-      label="OrderID"
-      min-width="200"
-    >
-      <template slot-scope="{row}">
+  <el-table :data="list" style="width: 100%; padding-top: 15px;">
+    <el-table-column label="OrderID" min-width="200">
+      <!-- eslint-disable -->
+      <template v-slot="{ row }">
         {{ row.orderId | orderNoFilter }}
-      </template>
+      </template><!-- eslint-enable -->
     </el-table-column>
-    <el-table-column
-      label="Price"
-      width="195"
-      align="center"
-    >
-      <template slot-scope="{row}">
+    <el-table-column label="Price" width="195" align="center">
+      <!-- eslint-disable -->
+      <template v-slot="{ row }">
         ¥{{ row.price | toThousandFilter }}
-      </template>
+      </template><!-- eslint-enable -->
     </el-table-column>
-    <el-table-column
-      label="Status"
-      width="100"
-      align="center"
-    >
-      <template slot-scope="{row}">
-        <el-tag :type="row.status | transactionStatusFilter">
+    <el-table-column label="Status" width="100" align="center">
+      <template v-slot="{ row }">
+        <!-- eslint-disable -->
+        <el-tag :type="row.status | transactionStatusFilter"><!-- eslint-enable -->
           {{ row.status }}
         </el-tag>
       </template>
@@ -45,16 +34,18 @@ import { ITransactionData } from '@/api/types'
     transactionStatusFilter: (status: string) => {
       const statusMap: { [key: string]: string } = {
         success: 'success',
-        pending: 'danger'
+        pending: 'danger',
       }
       return statusMap[status]
     },
     orderNoFilter: (str: string) => str.substring(0, 30),
     // Input 10000 => Output "10,000"
     toThousandFilter: (num: number) => {
-      return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
-    }
-  }
+      return (+num || 0)
+        .toString()
+        .replace(/^-?\d+/g, (m) => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
+    },
+  },
 })
 export default class extends Vue {
   private list: ITransactionData[] = []
@@ -64,7 +55,9 @@ export default class extends Vue {
   }
 
   private async fetchData() {
-    const { data } = await getTransactions({ /* Your params here */ })
+    const { data } = await getTransactions({
+      /* Your params here */
+    })
     this.list = data.items.slice(0, 8)
   }
 }

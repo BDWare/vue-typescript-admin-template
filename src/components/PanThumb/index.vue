@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="{zIndex: zIndex, height: height, width: width}"
+    :style="{ zIndex: zIndex, height: height, width: width }"
     class="pan-item"
   >
     <div class="pan-info">
@@ -8,10 +8,7 @@
         <slot />
       </div>
     </div>
-    <div
-      :style="{backgroundImage: `url(${image})`}"
-      class="pan-thumb"
-    />
+    <div :style="{ backgroundImage: `url(${image})` }" class="pan-thumb" />
   </div>
 </template>
 
@@ -19,7 +16,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'PanThumb'
+  name: 'PanThumb',
 })
 export default class extends Vue {
   @Prop({ required: true }) private image!: string
@@ -100,7 +97,8 @@ export default class extends Vue {
       margin: 7px auto 0;
       font-family: 'Open Sans', Arial, sans-serif;
       opacity: 0;
-      transition: transform 0.3s ease-in-out 0.2s, opacity 0.3s ease-in-out 0.2s, background 0.2s linear 0s;
+      transition: transform 0.3s ease-in-out 0.2s, opacity 0.3s ease-in-out 0.2s,
+        background 0.2s linear 0s;
       transform: translateX(60px) rotate(90deg);
 
       &:hover {

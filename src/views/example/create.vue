@@ -9,8 +9,8 @@ import ArticleDetail from './components/ArticleDetail.vue'
 @Component({
   name: 'CreateArticle',
   components: {
-    ArticleDetail
-  }
+    ArticleDetail,
+  },
 })
 export default class extends Vue {}
 </script>
