@@ -2,7 +2,6 @@
   "name": "vue-typescript-admin-template",
   "version": "1.0.0",
   "private": true,
-  "author": "Chong Guo <armourcy@gmail.com>",
   "scripts": {
     "serve": "concurrently \"npm:mock\" \"vue-cli-service serve\"",
     "build:prod": "vue-cli-service build",
@@ -123,12 +122,13 @@
     "webpack": "^4.43.0"
   },
   "bugs": {
-    "url": "https://github.com/armour/vue-typescript-admin-template/issues"
+    "url": "https://github.com/BDWare/vue-typescript-admin-template/issues"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "keywords": [
+    "bdware",
     "vue",
     "typescript",
     "admin",
@@ -142,6 +142,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/armour/vue-typescript-admin-template.git"
+    "url": "git+https://github.com/BDWare/vue-typescript-admin-template.git"
   }
 }
