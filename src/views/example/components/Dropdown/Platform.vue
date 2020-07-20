@@ -4,7 +4,9 @@
       Platfroms({{ platforms.length }})
       <i class="el-icon-caret-bottom el-icon--right" />
     </el-button>
+    <!-- eslint-disable -->
     <el-dropdown-menu slot="dropdown">
+      <!-- eslint-enable -->
       <el-checkbox-group v-model="platforms" style="padding: 5px 15px;">
         <el-checkbox
           v-for="item in platformsOptions"

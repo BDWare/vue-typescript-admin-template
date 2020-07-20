@@ -53,7 +53,9 @@
       <el-table-column width="220" align="center" label="Date">
         <template v-slot="{ row }">
           <i class="el-icon-time" />
+          <!-- eslint-disable -->
           <span>{{ row.timestamp | parseTime }}</span>
+          <!-- eslint-enable -->
         </template>
       </el-table-column>
     </el-table>

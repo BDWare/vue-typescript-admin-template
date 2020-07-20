@@ -1,10 +1,11 @@
 <template>
+  <!-- eslint-disable -->
   <el-scrollbar
     ref="scrollContainer"
     :vertical="false"
     class="scroll-container"
     @wheel.native.prevent="handleScroll"
-  >
+  ><!-- eslint-enable -->
     <slot />
   </el-scrollbar>
 </template>

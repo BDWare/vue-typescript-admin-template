@@ -1,7 +1,9 @@
 <template>
   <div>
     <el-card class="box-card" style="margin-top: 40px;">
+      <!-- eslint-disable -->
       <div slot="header" class="clearfix">
+        <!-- eslint-enable -->
         <svg-icon name="international" />
         <span style="margin-left: 10px;">{{ $t('i18nView.title') }}</span>
       </div>

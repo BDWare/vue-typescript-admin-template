@@ -71,7 +71,7 @@ export default class extends Vue {
       )
       return
     }
-    this.$emit('successCBK', arr)
+    this.$emit('success-cbk', arr)
     this.listObj = {}
     this.defaultFileList = []
     this.dialogVisible = false

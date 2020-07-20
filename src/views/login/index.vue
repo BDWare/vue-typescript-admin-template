@@ -40,6 +40,7 @@
           <span class="svg-container">
             <svg-icon name="password" />
           </span>
+          <!-- eslint-disable -->
           <el-input
             :key="passwordType"
             ref="password"
@@ -52,7 +53,7 @@
             @keyup.native="checkCapslock"
             @blur="capsTooltip = false"
             @keyup.enter.native="handleLogin"
-          />
+          /><!-- eslint-enable -->
           <span class="show-pwd" @click="showPwd">
             <svg-icon
               :name="passwordType === 'password' ? 'eye-off' : 'eye-on'"
@@ -61,12 +62,12 @@
         </el-form-item>
       </el-tooltip>
 
-      <el-button
+      <!-- eslint-disable --><el-button
         :loading="loading"
         type="primary"
         style="width: 100%; margin-bottom: 30px;"
         @click.native.prevent="handleLogin"
-      >
+      ><!-- eslint-enable -->
         {{ $t('login.logIn') }}
       </el-button>
 

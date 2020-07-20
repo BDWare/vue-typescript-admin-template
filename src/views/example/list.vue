@@ -16,7 +16,9 @@
 
       <el-table-column width="180px" align="center" label="Date">
         <template v-slot="{ row }">
+          <!-- eslint-disable -->
           <span>{{ row.timestamp | parseTime }}</span>
+          <!-- eslint-enable -->
         </template>
       </el-table-column>
 
@@ -39,9 +41,11 @@
 
       <el-table-column class-name="status-col" label="Status" width="110">
         <template v-slot="{ row }">
+          <!-- eslint-disable -->
           <el-tag :type="row.status | articleStatusFilter">
             {{ row.status }}
           </el-tag>
+          <!-- eslint-enable -->
         </template>
       </el-table-column>
 

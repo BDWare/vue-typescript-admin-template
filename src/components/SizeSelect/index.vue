@@ -3,7 +3,9 @@
     <div>
       <svg-icon class="size-icon" name="size" />
     </div>
+    <!-- eslint-disable -->
     <el-dropdown-menu slot="dropdown">
+      <!-- eslint-enable -->
       <el-dropdown-item
         v-for="item of sizeOptions"
         :key="item.value"

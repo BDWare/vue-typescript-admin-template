@@ -173,6 +173,7 @@ export default class extends Vue {
     this.$emit('input', value)
     if (this.$parent.$options.name === 'ElFormItem') {
       if (this.validateEvent) {
+        // eslint-disable-next-line
         this.$parent.$emit('el.form.change', [value])
       }
     }
@@ -188,6 +189,7 @@ export default class extends Vue {
     this.$emit('blur', event)
     if (this.$parent.$options.name === 'ElFormItem') {
       if (this.validateEvent) {
+        // eslint-disable-next-line
         this.$parent.$emit('el.form.blur', [this.valueCopy])
       }
     }

@@ -16,9 +16,10 @@
             @click="handleClipboard(generateSvgIconCode(item), $event)"
           >
             <el-tooltip placement="top">
+              <!-- eslint-disable -->
               <div slot="content">
                 {{ generateSvgIconCode(item) }}
-              </div>
+              </div><!-- eslint-enable -->
               <div class="icon-item">
                 <svg-icon :name="item" class="disabled" />
                 <span>{{ item }}</span>
@@ -35,9 +36,10 @@
             @click="handleClipboard(generateElementIconCode(item), $event)"
           >
             <el-tooltip placement="top">
+              <!-- eslint-disable -->
               <div slot="content">
                 {{ generateElementIconCode(item) }}
-              </div>
+              </div><!-- eslint-enable -->
               <div class="icon-item">
                 <i :class="'el-icon-' + item" />
                 <span>{{ item }}</span>

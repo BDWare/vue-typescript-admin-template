@@ -4,7 +4,9 @@
       {{ !disableComment ? 'Comment: opened' : 'Comment: closed' }}
       <i class="el-icon-caret-bottom el-icon--right" />
     </el-button>
+    <!-- eslint-disable -->
     <el-dropdown-menu slot="dropdown" class="no-padding">
+      <!-- eslint-enable -->
       <el-dropdown-item>
         <el-radio-group v-model="disableComment" style="padding: 10px;">
           <el-radio :label="true">

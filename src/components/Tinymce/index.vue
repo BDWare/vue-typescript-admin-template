@@ -9,7 +9,7 @@
       <editor-image-upload
         :color="uploadButtonColor"
         class="editor-upload-btn"
-        @successCBK="imageSuccessCBK"
+        @success-cbk="imageSuccessCBK"
       />
     </div>
   </div>

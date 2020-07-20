@@ -4,7 +4,9 @@
       Link
       <i class="el-icon-caret-bottom el-icon--right" />
     </el-button>
+    <!-- eslint-disable -->
     <el-dropdown-menu slot="dropdown" class="no-padding" style="width: 400px;">
+      <!-- eslint-enable -->
       <el-form-item
         label-width="0px"
         style="margin-bottom: 0px;"

@@ -2,7 +2,9 @@
   <div class="mixin-components-container">
     <el-row>
       <el-card class="box-card">
+        <!-- eslint-disable -->
         <div slot="header" class="clearfix">
+          <!-- eslint-enable -->
           <span>Buttons</span>
         </div>
         <div style="margin-bottom: 50px;">
@@ -43,7 +45,9 @@
     <el-row :gutter="20" style="margin-top: 50px;">
       <el-col :span="6">
         <el-card class="box-card">
+          <!-- eslint-disable -->
           <div slot="header" class="clearfix">
+            <!-- eslint-enable -->
             <span>Material Design 的input</span>
           </div>
           <div style="height: 100px;">
@@ -66,7 +70,9 @@
 
       <el-col :span="6">
         <el-card class="box-card">
+          <!-- eslint-disable -->
           <div slot="header" class="clearfix">
+            <!-- eslint-enable -->
             <span>图片hover效果</span>
           </div>
           <div class="component-item">
@@ -83,7 +89,9 @@
 
       <el-col :span="6">
         <el-card class="box-card">
+          <!-- eslint-disable -->
           <div slot="header" class="clearfix">
+            <!-- eslint-enable -->
             <span>水波纹 waves v-directive</span>
           </div>
           <div class="component-item">
@@ -96,7 +104,9 @@
 
       <el-col :span="6">
         <el-card class="box-card">
+          <!-- eslint-disable -->
           <div slot="header" class="clearfix">
+            <!-- eslint-enable -->
             <span>hover text</span>
           </div>
           <div class="component-item">
@@ -109,7 +119,9 @@
     <el-row :gutter="20" style="margin-top: 50px;">
       <el-col :span="8">
         <el-card class="box-card">
+          <!-- eslint-disable -->
           <div slot="header" class="clearfix">
+            <!-- eslint-enable -->
             <span>Share</span>
           </div>
           <div class="component-item" style="height: 420px;">

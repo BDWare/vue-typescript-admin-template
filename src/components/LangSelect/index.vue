@@ -7,7 +7,9 @@
     <div>
       <svg-icon name="language" class="international-icon" />
     </div>
+    <!-- eslint-disable -->
     <el-dropdown-menu slot="dropdown">
+      <!-- eslint-enable -->
       <el-dropdown-item :disabled="language === 'zh'" command="zh">
         中文
       </el-dropdown-item>

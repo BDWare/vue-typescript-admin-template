@@ -12,7 +12,9 @@
     </el-badge>
 
     <el-dialog v-model:visible="dialogTableVisible" width="80%" append-to-body>
+      <!-- eslint-disable -->
       <div slot="title">
+        <!-- eslint-enable -->
         <span style="padding-right: 10px;">Error Log</span>
         <el-button
           size="mini"

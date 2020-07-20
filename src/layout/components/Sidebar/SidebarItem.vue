@@ -21,18 +21,20 @@
             v-if="theOnlyOneChild.meta.icon"
             :name="theOnlyOneChild.meta.icon"
           />
+          <!-- eslint-disable -->
           <span v-if="theOnlyOneChild.meta.title" slot="title">{{
             $t('route.' + theOnlyOneChild.meta.title)
-          }}</span>
+          }}</span><!-- eslint-enable -->
         </el-menu-item>
       </sidebar-item-link>
     </template>
     <el-submenu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template v-slot:title>
         <svg-icon v-if="item.meta && item.meta.icon" :name="item.meta.icon" />
+        <!-- eslint-disable -->
         <span v-if="item.meta && item.meta.title" slot="title">{{
           $t('route.' + item.meta.title)
-        }}</span>
+        }}</span><!-- eslint-enable -->
       </template>
       <template v-if="item.children">
         <sidebar-item

@@ -5,6 +5,7 @@
       class="tags-view-wrapper"
       @scroll="handleScroll"
     >
+      <!-- eslint-disable -->
       <router-link
         v-for="tag in visitedViews"
         ref="tag"
@@ -15,7 +16,7 @@
         class="tags-view-item"
         @click.middle.native="!isAffix(tag) ? closeSelectedTag(tag) : ''"
         @contextmenu.prevent.native="openMenu(tag, $event)"
-      >
+      ><!-- eslint-enable -->
         {{ $t('route.' + tag.meta.title) }}
         <span
           v-if="!isAffix(tag)"

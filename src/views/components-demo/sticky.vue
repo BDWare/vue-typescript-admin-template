@@ -5,7 +5,9 @@
         <el-button plain>
           Platform<i class="el-icon-caret-bottom el-icon--right" />
         </el-button>
+        <!-- eslint-disable -->
         <el-dropdown-menu slot="dropdown" class="no-border">
+          <!-- eslint-enable -->
           <el-checkbox-group v-model="platforms" style="padding: 5px 15px;">
             <el-checkbox
               v-for="item in platformsOptions"
@@ -22,11 +24,12 @@
         <el-button plain>
           Link<i class="el-icon-caret-bottom el-icon--right" />
         </el-button>
+        <!-- eslint-disable -->
         <el-dropdown-menu
           slot="dropdown"
           class="no-padding no-border"
           style="width: 300px;"
-        >
+        ><!-- eslint-enable -->
           <el-input v-model="url" placeholder="Please enter the content">
             <template v-slot:prepend>
               Url

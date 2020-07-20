@@ -7,7 +7,7 @@
       v-el-draggable-dialog
       v-model:visible="dialogTableVisible"
       title="Shipping address"
-      @onDialogDrag="handleDialogDrag"
+      @on-dialog-drag="handleDialogDrag"
     >
       <el-select ref="select" v-model="value" placeholder="Please select">
         <el-option
@@ -66,7 +66,7 @@ export default class extends Vue {
     },
   ]
 
-  // v-el-dialog-draggable onDialogDrag callback function
+  // v-el-dialog-draggable on-dialog-drag callback function
   private handleDialogDrag() {
     ;(this.$refs.select as Select).blur()
   }
