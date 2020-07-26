@@ -15,6 +15,7 @@ declare module '*.gif' {
 declare module 'vue-count-to'
 
 // TODO: remove this part after vuedraggable has its typescript file
+// this can be removed when v2.24.0's next version fix the typing
 declare module 'vuedraggable'
 
 // TODO: remove this part after vue2-dropzone has its typescript file
