@@ -59,7 +59,7 @@
           <!-- eslint-disable -->
           <el-dropdown-item divided @click.native="logout">
             <!-- eslint-enable -->
-            <span style="display: block;">
+            <span style="display: block">
               {{ $t('navbar.logOut') }}
             </span>
           </el-dropdown-item>

@@ -5,7 +5,7 @@
         <el-input
           v-model="inputData"
           placeholder="Please input"
-          style="width: 400px; max-width: 100%;"
+          style="width: 400px; max-width: 100%"
         />
         <el-button
           type="primary"
@@ -19,7 +19,7 @@
         <el-input
           v-model="inputData"
           placeholder="Please input"
-          style="width: 400px; max-width: 100%;"
+          style="width: 400px; max-width: 100%"
         />
         <el-button
           v-clipboard:copy="inputData"

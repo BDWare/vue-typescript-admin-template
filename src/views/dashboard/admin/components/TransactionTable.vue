@@ -1,5 +1,5 @@
 <template>
-  <el-table :data="list" style="width: 100%; padding-top: 15px;">
+  <el-table :data="list" style="width: 100%; padding-top: 15px">
     <el-table-column label="OrderID" min-width="200">
       <!-- eslint-disable -->
       <template v-slot="{ row }">

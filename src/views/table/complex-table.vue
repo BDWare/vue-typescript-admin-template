@@ -13,7 +13,7 @@
         v-model="listQuery.importance"
         :placeholder="$t('table.importance')"
         clearable
-        style="width: 120px;"
+        style="width: 120px"
         class="filter-item"
       >
         <el-option
@@ -28,7 +28,7 @@
         :placeholder="$t('table.type')"
         clearable
         class="filter-item"
-        style="width: 130px;"
+        style="width: 130px"
       >
         <el-option
           v-for="item in calendarTypeOptions"
@@ -39,7 +39,7 @@
       </el-select>
       <el-select
         v-model="listQuery.sort"
-        style="width: 140px;"
+        style="width: 140px"
         class="filter-item"
         @change="handleFilter"
       >
@@ -61,7 +61,7 @@
       </el-button>
       <el-button
         class="filter-item"
-        style="margin-left: 10px;"
+        style="margin-left: 10px"
         type="primary"
         icon="el-icon-edit"
         @click="handleCreate"
@@ -81,7 +81,7 @@
       <el-checkbox
         v-model="showReviewer"
         class="filter-item"
-        style="margin-left: 15px;"
+        style="margin-left: 15px"
         @change="tableKey = tableKey + 1"
       >
         {{ $t('table.reviewer') }}
@@ -95,7 +95,7 @@
       border
       fit
       highlight-current-row
-      style="width: 100%;"
+      style="width: 100%"
       @sort-change="sortChange"
     >
       <el-table-column
@@ -139,7 +139,7 @@
         align="center"
       >
         <template v-slot="{ row }">
-          <span style="color: red;">{{ row.reviewer }}</span>
+          <span style="color: red">{{ row.reviewer }}</span>
         </template>
       </el-table-column>
       <el-table-column :label="$t('table.importance')" width="105px">
@@ -231,7 +231,7 @@
         :model="tempArticleData"
         label-position="left"
         label-width="100px"
-        style="width: 400px; margin-left: 50px;"
+        style="width: 400px; margin-left: 50px"
       >
         <el-form-item :label="$t('table.type')" prop="type">
           <el-select
@@ -276,7 +276,7 @@
             v-model="tempArticleData.importance"
             :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
             :max="3"
-            style="margin-top: 8px;"
+            style="margin-top: 8px"
           />
         </el-form-item>
         <el-form-item :label="$t('table.remark')">
@@ -312,7 +312,7 @@
         border
         fit
         highlight-current-row
-        style="width: 100%;"
+        style="width: 100%"
       >
         <el-table-column prop="key" label="Channel" />
         <el-table-column prop="pageviews" label="Pageviews" />

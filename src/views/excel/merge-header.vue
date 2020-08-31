@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-button
       :loading="downloadLoading"
-      style="margin-bottom: 20px;"
+      style="margin-bottom: 20px"
       type="primary"
       icon="el-icon-document"
       @click="handleDownload"

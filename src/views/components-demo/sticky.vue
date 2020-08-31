@@ -8,7 +8,7 @@
         <!-- eslint-disable -->
         <el-dropdown-menu slot="dropdown" class="no-border">
           <!-- eslint-enable -->
-          <el-checkbox-group v-model="platforms" style="padding: 5px 15px;">
+          <el-checkbox-group v-model="platforms" style="padding: 5px 15px">
             <el-checkbox
               v-for="item in platformsOptions"
               :key="item.key"
@@ -31,9 +31,7 @@
           style="width: 300px;"
         ><!-- eslint-enable -->
           <el-input v-model="url" placeholder="Please enter the content">
-            <template v-slot:prepend>
-              Url
-            </template>
+            <template v-slot:prepend> Url </template>
           </el-input>
         </el-dropdown-menu>
       </el-dropdown>
@@ -48,9 +46,7 @@
         />
       </div>
 
-      <el-button style="margin-left: 10px;" type="success">
-        publish
-      </el-button>
+      <el-button style="margin-left: 10px" type="success"> publish </el-button>
     </sticky>
 
     <div class="components-container">
@@ -69,9 +65,7 @@
       <div>placeholder</div>
       <div>placeholder</div>
       <sticky :sticky-top="200">
-        <el-button type="primary">
-          placeholder
-        </el-button>
+        <el-button type="primary"> placeholder </el-button>
       </sticky>
       <div>placeholder</div>
       <div>placeholder</div>

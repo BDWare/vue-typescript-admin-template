@@ -2,7 +2,7 @@
   <div class="components-container">
     <draggable-select
       v-model="value"
-      style="width: 500px;"
+      style="width: 500px"
       multiple
       placeholder="Please select"
     >
@@ -14,8 +14,8 @@
       />
     </draggable-select>
 
-    <div style="margin-top: 30px;">
-      <el-tag v-for="item of value" :key="item" style="margin-right: 15px;">
+    <div style="margin-top: 30px">
+      <el-tag v-for="item of value" :key="item" style="margin-right: 15px">
         {{ item }}
       </el-tag>
     </div>

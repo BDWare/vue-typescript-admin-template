@@ -12,7 +12,7 @@
         <source-url-dropdown v-model="postForm.sourceURL" />
         <el-button
           v-loading="loading"
-          style="margin-left: 10px;"
+          style="margin-left: 10px"
           type="success"
           @click="submitForm"
         >
@@ -28,7 +28,7 @@
           <warning />
 
           <el-col :span="24">
-            <el-form-item style="margin-bottom: 40px;" prop="title">
+            <el-form-item style="margin-bottom: 40px" prop="title">
               <material-input
                 v-model="postForm.title"
                 :maxlength="100"
@@ -92,7 +92,7 @@
                       :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
                       :low-threshold="1"
                       :high-threshold="3"
-                      style="display: inline-block;"
+                      style="display: inline-block"
                     />
                   </el-form-item>
                 </el-col>
@@ -102,7 +102,7 @@
         </el-row>
 
         <el-form-item
-          style="margin-bottom: 40px;"
+          style="margin-bottom: 40px"
           label-width="70px"
           label="Summary:"
         >
@@ -119,7 +119,7 @@
           >
         </el-form-item>
 
-        <el-form-item prop="content" style="margin-bottom: 30px;">
+        <el-form-item prop="content" style="margin-bottom: 30px">
           <tinymce
             v-if="tinymceActive"
             ref="editor"
@@ -128,7 +128,7 @@
           />
         </el-form-item>
 
-        <el-form-item prop="imageURL" style="margin-bottom: 30px;">
+        <el-form-item prop="imageURL" style="margin-bottom: 30px">
           <upload-image v-model="postForm.imageURL" />
         </el-form-item>
       </div>

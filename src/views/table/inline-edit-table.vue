@@ -6,7 +6,7 @@
       border
       fit
       highlight-current-row
-      style="width: 100%;"
+      style="width: 100%"
     >
       <el-table-column align="center" label="ID" width="80">
         <template v-slot="{ row }">

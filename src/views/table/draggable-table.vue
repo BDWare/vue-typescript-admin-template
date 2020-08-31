@@ -9,7 +9,7 @@
       border
       fit
       highlight-current-row
-      style="width: 100%;"
+      style="width: 100%"
     >
       <el-table-column align="center" label="ID" width="65">
         <template v-slot="{ row }">
@@ -74,7 +74,7 @@
     </el-table>
     <!-- $t is vue-i18n global function to translate lang (lang in @/lang)  -->
     <div class="show-d">
-      <el-tag style="margin-right: 12px;">
+      <el-tag style="margin-right: 12px">
         {{ $t('table.dragTips1') }} :
       </el-tag>
       {{ oldList }}

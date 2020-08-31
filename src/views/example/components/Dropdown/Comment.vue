@@ -8,13 +8,9 @@
     <el-dropdown-menu slot="dropdown" class="no-padding">
       <!-- eslint-enable -->
       <el-dropdown-item>
-        <el-radio-group v-model="disableComment" style="padding: 10px;">
-          <el-radio :label="true">
-            Close comment
-          </el-radio>
-          <el-radio :label="false">
-            Open comment
-          </el-radio>
+        <el-radio-group v-model="disableComment" style="padding: 10px">
+          <el-radio :label="true"> Close comment </el-radio>
+          <el-radio :label="false"> Open comment </el-radio>
         </el-radio-group>
       </el-dropdown-item>
     </el-dropdown-menu>

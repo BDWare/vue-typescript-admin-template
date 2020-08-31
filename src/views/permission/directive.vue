@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <switch-roles @change="handleRolesChange" />
-    <div :key="key" style="margin-top: 30px;">
+    <div :key="key" style="margin-top: 30px">
       <div>
         <span v-permission="['admin']" class="permission-alert">
           Only
@@ -49,14 +49,14 @@
       </div>
     </div>
 
-    <div :key="'checkPermission' + key" style="margin-top: 60px;">
+    <div :key="'checkPermission' + key" style="margin-top: 60px">
       <aside>
         {{ $t('permission.tips') }}
         <br />
         e.g.
       </aside>
 
-      <el-tabs type="border-card" style="width: 550px;">
+      <el-tabs type="border-card" style="width: 550px">
         <el-tab-pane v-if="checkPermission(['admin'])" label="Admin">
           Admin can see this
           <el-tag class="permission-sourceCode" type="info">

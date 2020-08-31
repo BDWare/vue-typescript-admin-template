@@ -3,12 +3,12 @@
     <el-input
       v-model="filename"
       placeholder="Please enter the file name (default file)"
-      style="width: 300px;"
+      style="width: 300px"
       prefix-icon="el-icon-document"
     />
     <el-button
       :loading="downloadLoading"
-      style="margin-bottom: 20px;"
+      style="margin-bottom: 20px"
       type="primary"
       icon="el-icon-document"
       @click="handleDownload"

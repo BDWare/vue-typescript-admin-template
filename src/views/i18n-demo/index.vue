@@ -1,37 +1,27 @@
 <template>
   <div>
-    <el-card class="box-card" style="margin-top: 40px;">
+    <el-card class="box-card" style="margin-top: 40px">
       <!-- eslint-disable -->
       <div slot="header" class="clearfix">
         <!-- eslint-enable -->
         <svg-icon name="international" />
-        <span style="margin-left: 10px;">{{ $t('i18nView.title') }}</span>
+        <span style="margin-left: 10px">{{ $t('i18nView.title') }}</span>
       </div>
       <div>
         <el-radio-group v-model="lang" size="small">
-          <el-radio label="zh" border>
-            简体中文
-          </el-radio>
-          <el-radio label="en" border>
-            English
-          </el-radio>
-          <el-radio label="es" border>
-            Español
-          </el-radio>
-          <el-radio label="ja" border>
-            日本語
-          </el-radio>
-          <el-radio label="ko" border>
-            한국어
-          </el-radio>
+          <el-radio label="zh" border> 简体中文 </el-radio>
+          <el-radio label="en" border> English </el-radio>
+          <el-radio label="es" border> Español </el-radio>
+          <el-radio label="ja" border> 日本語 </el-radio>
+          <el-radio label="ko" border> 한국어 </el-radio>
         </el-radio-group>
-        <el-tag style="margin-top: 15px; display: block;" type="info">
+        <el-tag style="margin-top: 15px; display: block" type="info">
           {{ $t('i18nView.note') }}
         </el-tag>
       </div>
     </el-card>
 
-    <el-row :gutter="20" style="margin: 100px 15px 50px;">
+    <el-row :gutter="20" style="margin: 100px 15px 50px">
       <el-col :span="12" :xs="24">
         <div class="block">
           <el-date-picker
@@ -80,7 +70,7 @@
           fit
           highlight-current-row
           border
-          style="width: 100%;"
+          style="width: 100%"
         >
           <el-table-column
             :label="$t('i18nView.tableName')"

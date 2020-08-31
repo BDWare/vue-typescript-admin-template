@@ -6,7 +6,7 @@
       <book-type-option v-model="bookType" />
       <el-button
         :loading="downloadLoading"
-        style="margin: 0 0 20px 20px;"
+        style="margin: 0 0 20px 20px"
         type="primary"
         icon="el-icon-document"
         @click="handleDownload"
@@ -16,7 +16,7 @@
       <a
         href="https://armour.github.io/vue-typescript-admin-docs/features/components/excel.html"
         target="_blank"
-        style="margin-left: 15px;"
+        style="margin-left: 15px"
       >
         <el-tag type="info">Documentation</el-tag>
       </a>

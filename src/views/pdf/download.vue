@@ -9,7 +9,7 @@
         {{ article.title }}
       </div>
     </div>
-    <div style="color: #ccc;">
+    <div style="color: #ccc">
       This article is from Evan You on
       <a
         target="_blank"

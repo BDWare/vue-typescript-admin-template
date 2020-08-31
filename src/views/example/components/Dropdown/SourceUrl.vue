@@ -9,13 +9,11 @@
       <!-- eslint-enable -->
       <el-form-item
         label-width="0px"
-        style="margin-bottom: 0px;"
+        style="margin-bottom: 0px"
         prop="sourceURL"
       >
         <el-input v-model="sourceURL" placeholder="Please enter the content">
-          <template v-slot:prepend>
-            URL
-          </template>
+          <template v-slot:prepend> URL </template>
         </el-input>
       </el-form-item>
     </el-dropdown-menu>

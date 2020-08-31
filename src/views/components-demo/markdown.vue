@@ -15,16 +15,12 @@
     </aside>
 
     <div class="editor-container">
-      <el-tag class="tag-title">
-        Basic:
-      </el-tag>
+      <el-tag class="tag-title"> Basic: </el-tag>
       <markdown-editor ref="markdownEditor" v-model="content1" height="300px" />
     </div>
 
     <div class="editor-container">
-      <el-tag class="tag-title">
-        Markdown Mode:
-      </el-tag>
+      <el-tag class="tag-title"> Markdown Mode: </el-tag>
       <markdown-editor
         v-model="content2"
         height="200px"
@@ -33,9 +29,7 @@
     </div>
 
     <div class="editor-container">
-      <el-tag class="tag-title">
-        Customize Toolbar:
-      </el-tag>
+      <el-tag class="tag-title"> Customize Toolbar: </el-tag>
       <markdown-editor
         v-model="content3"
         :options="{ toolbarItems: ['heading', 'bold', 'italic'] }"
@@ -43,9 +37,7 @@
     </div>
 
     <div class="editor-container">
-      <el-tag class="tag-title">
-        I18n:
-      </el-tag>
+      <el-tag class="tag-title"> I18n: </el-tag>
       <el-alert
         :closable="false"
         title="You can change the language of the admin system to see the effect"
@@ -55,7 +47,7 @@
     </div>
 
     <el-button
-      style="margin-top: 80px;"
+      style="margin-top: 80px"
       type="primary"
       icon="el-icon-document"
       @click="getHtml"

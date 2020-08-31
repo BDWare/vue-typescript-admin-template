@@ -71,7 +71,7 @@
         {{ $t('login.logIn') }}
       </el-button>
 
-      <div style="position: relative;">
+      <div style="position: relative">
         <div class="tips">
           <span>{{ $t('login.username') }} : admin </span>
           <span>{{ $t('login.password') }} : {{ $t('login.any') }} </span>

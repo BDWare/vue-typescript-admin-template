@@ -4,7 +4,7 @@
       {{ $t('permission.createRole') }}
     </el-button>
 
-    <el-table :data="rolesList" style="width: 100%; margin-top: 30px;" border>
+    <el-table :data="rolesList" style="width: 100%; margin-top: 30px" border>
       <el-table-column align="center" label="Role Key" width="220">
         <template v-slot="{ row }">
           {{ row.key }}
@@ -60,7 +60,7 @@
           />
         </el-form-item>
       </el-form>
-      <div style="text-align: right;">
+      <div style="text-align: right">
         <el-button type="danger" @click="dialogVisible = false">
           {{ $t('permission.cancel') }}
         </el-button>

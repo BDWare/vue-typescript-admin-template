@@ -1,5 +1,5 @@
 <template>
-  <el-card style="margin-bottom: 20px;">
+  <el-card style="margin-bottom: 20px">
     <!-- eslint-disable -->
     <div slot="header" class="clearfix">
       <!-- eslint-enable -->

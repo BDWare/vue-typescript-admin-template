@@ -3,12 +3,12 @@
     <el-input
       v-model="filename"
       placeholder="Please enter the file name (default excel-list)"
-      style="width: 350px;"
+      style="width: 350px"
       prefix-icon="el-icon-document"
     />
     <el-button
       :loading="downloadLoading"
-      style="margin-bottom: 20px;"
+      style="margin-bottom: 20px"
       type="primary"
       icon="el-icon-document"
       @click="handleDownload"
@@ -18,7 +18,7 @@
     <a
       href="https://armour.github.io/vue-typescript-admin-docs/features/components/excel.html"
       target="_blank"
-      style="margin-left: 15px;"
+      style="margin-left: 15px"
     >
       <el-tag type="info">Documentation</el-tag>
     </a>

@@ -6,9 +6,7 @@
           <svg-icon name="peoples" class="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">
-            New Visits
-          </div>
+          <div class="card-panel-text">New Visits</div>
           <count-to
             :start-val="0"
             :end-val="102400"
@@ -24,9 +22,7 @@
           <svg-icon name="message" class="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">
-            Messages
-          </div>
+          <div class="card-panel-text">Messages</div>
           <count-to
             :start-val="0"
             :end-val="81212"
@@ -42,9 +38,7 @@
           <svg-icon name="money" class="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">
-            Purchases
-          </div>
+          <div class="card-panel-text">Purchases</div>
           <count-to
             :start-val="0"
             :end-val="9280"
@@ -60,9 +54,7 @@
           <svg-icon name="shopping" class="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">
-            Shoppings
-          </div>
+          <div class="card-panel-text">Shoppings</div>
           <count-to
             :start-val="0"
             :end-val="13600"

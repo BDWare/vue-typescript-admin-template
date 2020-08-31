@@ -17,7 +17,7 @@
       :autoplay="false"
       class="count"
     />
-    <div style="margin-left: 25%; margin-top: 40px;">
+    <div style="margin-left: 25%; margin-top: 40px">
       <label class="label" for="startValInput">
         startVal:
         <input
@@ -38,9 +38,7 @@
           name="durationInput"
         />
       </label>
-      <div class="startBtn count-btn" @click="start">
-        Start
-      </div>
+      <div class="startBtn count-btn" @click="start">Start</div>
       <div class="pause-resume-btn count-btn" @click="pauseResume">
         pause/resume
       </div>

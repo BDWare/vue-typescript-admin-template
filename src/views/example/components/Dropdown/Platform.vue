@@ -7,7 +7,7 @@
     <!-- eslint-disable -->
     <el-dropdown-menu slot="dropdown">
       <!-- eslint-enable -->
-      <el-checkbox-group v-model="platforms" style="padding: 5px 15px;">
+      <el-checkbox-group v-model="platforms" style="padding: 5px 15px">
         <el-checkbox
           v-for="item in platformsOptions"
           :key="item.key"
