@@ -78,8 +78,8 @@ export default class extends Vue {
     if (!editorElement) return
     // eslint-disable-next-line new-cap
     this.markdownEditor = new tuiEditor({
-      el: editorElement,
       ...this.editorOptions,
+      el: editorElement,
     })
     if (this.value) {
       this.markdownEditor.setValue(this.value)
