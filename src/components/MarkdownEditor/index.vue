@@ -8,7 +8,7 @@ import 'tui-editor/dist/tui-editor.css' // editor ui
 import 'tui-editor/dist/tui-editor-contents.css' // editor content
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import defaultOptions from './default-options'
-import TuiEditor from 'tui-editor'
+import tuiEditor from 'tui-editor'
 
 const defaultId = () =>
   'markdown-editor-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '')
@@ -19,8 +19,7 @@ const defaultId = () =>
 export default class extends Vue {
   @Prop({ required: true }) private value!: string
   @Prop({ default: defaultId }) private id!: string
-  @Prop({ default: () => defaultOptions })
-  private options!: tuiEditor.IEditorOptions
+  @Prop({ default: () => defaultOptions }) private options!: tuiEditor.IEditorOptions
   @Prop({ default: 'markdown' }) private mode!: string
   @Prop({ default: '300px' }) private height!: string
   // https://github.com/nhnent/tui.editor/tree/master/src/js/langs
@@ -76,9 +75,10 @@ export default class extends Vue {
   private initEditor() {
     const editorElement = document.getElementById(this.id)
     if (!editorElement) return
-    this.markdownEditor = new TuiEditor({
-      ...this.editorOptions,
+    // eslint-disable-next-line new-cap
+    this.markdownEditor = new tuiEditor({
       el: editorElement,
+      ...this.editorOptions
     })
     if (this.value) {
       this.markdownEditor.setValue(this.value)

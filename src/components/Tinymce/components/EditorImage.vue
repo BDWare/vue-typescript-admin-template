@@ -9,7 +9,10 @@
     >
       upload
     </el-button>
-    <el-dialog v-model:visible="dialogVisible">
+    <el-dialog
+      v-model:visible="dialogVisible"
+      :modal-append-to-body="false"
+    >
       <el-upload
         :multiple="true"
         :file-list="defaultFileList"
@@ -21,17 +24,17 @@
         action="https://httpbin.org/post"
         list-type="picture-card"
       >
-        <el-button size="small" type="primary"> Click upload </el-button>
+        <el-button size="small" type="primary"> Click upload</el-button>
       </el-upload>
-      <el-button @click="dialogVisible = false"> Cancel </el-button>
-      <el-button type="primary" @click="handleSubmit"> Confirm </el-button>
+      <el-button @click="dialogVisible = false"> Cancel</el-button>
+      <el-button type="primary" @click="handleSubmit"> Confirm</el-button>
     </el-dialog>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
-import { ElUploadInternalRawFile } from 'element-ui/types/upload'
+import {Component, Prop, Vue} from 'vue-property-decorator'
+import {ElUploadInternalRawFile} from 'element-ui/types/upload'
 
 export interface IUploadObject {
   hasSuccess: boolean
@@ -45,7 +48,7 @@ export interface IUploadObject {
   name: 'EditorImageUpload',
 })
 export default class extends Vue {
-  @Prop({ required: true }) private color!: string
+  @Prop({required: true}) private color!: string
 
   private dialogVisible = false
   private listObj: { [key: string]: IUploadObject } = {}
@@ -65,7 +68,7 @@ export default class extends Vue {
       )
       return
     }
-    this.$emit('success-cbk', arr)
+    this.$emit('success-callback', arr)
     this.listObj = {}
     this.defaultFileList = []
     this.dialogVisible = false

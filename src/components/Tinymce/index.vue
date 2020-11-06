@@ -9,7 +9,7 @@
       <editor-image-upload
         :color="uploadButtonColor"
         class="editor-upload-btn"
-        @success-cbk="imageSuccessCBK"
+        @success-callback="imageSuccessCBK"
       />
     </div>
   </div>
@@ -27,13 +27,17 @@ import 'tinymce/themes/mobile'
 // Any plugins you want to use has to be imported
 import 'tinymce/plugins/advlist'
 import 'tinymce/plugins/anchor'
+import 'tinymce/plugins/autoresize'
 import 'tinymce/plugins/autolink'
 import 'tinymce/plugins/autosave'
+import 'tinymce/plugins/charmap'
 import 'tinymce/plugins/code'
 import 'tinymce/plugins/codesample'
 import 'tinymce/plugins/directionality'
 import 'tinymce/plugins/emoticons'
+import 'tinymce/plugins/fullpage'
 import 'tinymce/plugins/fullscreen'
+import 'tinymce/plugins/help'
 import 'tinymce/plugins/hr'
 import 'tinymce/plugins/image'
 import 'tinymce/plugins/imagetools'
@@ -94,6 +98,7 @@ export default class extends Vue {
     es: 'es',
     ja: 'ja',
     ko: 'ko_KR',
+    it: 'it',
   }
 
   get language() {
@@ -125,7 +130,7 @@ export default class extends Vue {
     return {
       selector: `#${this.id}`,
       height: this.height,
-      body_class: 'panel-body ',
+      body_class: 'panel-body',
       object_resizing: false,
       toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,
       menubar: this.menubar,
@@ -205,11 +210,12 @@ export default class extends Vue {
   position: absolute;
   right: 6px;
   top: 6px;
+  z-index: 1002;
+}
 
-  &.fullscreen {
-    z-index: 10000;
-    position: fixed;
-  }
+.fullscreen .editor-custom-btn-container {
+  z-index: 10000;
+  position: fixed;
 }
 
 .editor-upload-btn {

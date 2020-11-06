@@ -14,6 +14,7 @@
           <el-radio label="es" border> Español </el-radio>
           <el-radio label="ja" border> 日本語 </el-radio>
           <el-radio label="ko" border> 한국어 </el-radio>
+          <el-radio label="it" border style="margin-left: 0; margin-top: 10px"> Italiano </el-radio>
         </el-radio-group>
         <el-tag style="margin-top: 15px; display: block" type="info">
           {{ $t('i18nView.note') }}
@@ -147,6 +148,7 @@ export default class extends Vue {
       this.$i18n.mergeLocaleMessage('es', local.es)
       this.$i18n.mergeLocaleMessage('ja', local.ja)
       this.$i18n.mergeLocaleMessage('ko', local.ko)
+      this.$i18n.mergeLocaleMessage('it', local.it)
     }
     this.setOptions() // set default select options
   }
