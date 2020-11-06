@@ -19,7 +19,8 @@ const defaultId = () =>
 export default class extends Vue {
   @Prop({ required: true }) private value!: string
   @Prop({ default: defaultId }) private id!: string
-  @Prop({ default: () => defaultOptions }) private options!: tuiEditor.IEditorOptions
+  @Prop({ default: () => defaultOptions })
+  private options!: tuiEditor.IEditorOptions
   @Prop({ default: 'markdown' }) private mode!: string
   @Prop({ default: '300px' }) private height!: string
   // https://github.com/nhnent/tui.editor/tree/master/src/js/langs
@@ -78,7 +79,7 @@ export default class extends Vue {
     // eslint-disable-next-line new-cap
     this.markdownEditor = new tuiEditor({
       el: editorElement,
-      ...this.editorOptions
+      ...this.editorOptions,
     })
     if (this.value) {
       this.markdownEditor.setValue(this.value)

@@ -9,10 +9,7 @@
     >
       upload
     </el-button>
-    <el-dialog
-      v-model:visible="dialogVisible"
-      :modal-append-to-body="false"
-    >
+    <el-dialog v-model:visible="dialogVisible" :modal-append-to-body="false">
       <el-upload
         :multiple="true"
         :file-list="defaultFileList"
@@ -33,8 +30,8 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from 'vue-property-decorator'
-import {ElUploadInternalRawFile} from 'element-ui/types/upload'
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import { ElUploadInternalRawFile } from 'element-ui/types/upload'
 
 export interface IUploadObject {
   hasSuccess: boolean
@@ -48,7 +45,7 @@ export interface IUploadObject {
   name: 'EditorImageUpload',
 })
 export default class extends Vue {
-  @Prop({required: true}) private color!: string
+  @Prop({ required: true }) private color!: string
 
   private dialogVisible = false
   private listObj: { [key: string]: IUploadObject } = {}

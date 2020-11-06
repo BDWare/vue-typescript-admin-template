@@ -25,10 +25,7 @@
       <el-dropdown-item :disabled="language === 'ko'" command="ko">
         한국어
       </el-dropdown-item>
-      <el-dropdown-item
-        :disabled="language==='it'"
-        command="it"
-      >
+      <el-dropdown-item :disabled="language === 'it'" command="it">
         Italiano
       </el-dropdown-item>
     </el-dropdown-menu>
