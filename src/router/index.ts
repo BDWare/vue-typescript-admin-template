@@ -493,7 +493,7 @@ export const asyncRoutes: RouteConfig[] = [
     ],
   },
   {
-    path: 'https://github.com/Armour/vue-typescript-admin-template',
+    path: 'https://github.com/BDWare/vue-typescript-admin-template',
     meta: {
       title: 'externalLink',
       icon: 'link',
