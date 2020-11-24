@@ -112,9 +112,11 @@ export default class extends Vue {
 
   private async logout() {
     await UserModule.LogOut()
-    this.$router.push(`/login?redirect=${this.$route.fullPath}`).catch(err => {
-      console.warn(err)
-    })
+    this.$router
+      .push(`/login?redirect=${this.$route.fullPath}`)
+      .catch((err) => {
+        console.warn(err)
+      })
   }
 }
 </script>

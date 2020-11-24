@@ -54,7 +54,7 @@ export default class extends Vue {
 
   @Watch('activeName')
   private onActiveNameChange(value: string) {
-    this.$router.push(`${this.$route.path}?tab=${value}`).catch(err => {
+    this.$router.push(`${this.$route.path}?tab=${value}`).catch((err) => {
       console.warn(err)
     })
   }

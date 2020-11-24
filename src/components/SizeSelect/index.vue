@@ -53,11 +53,13 @@ export default class extends Vue {
     TagsViewModule.delAllCachedViews()
     const { fullPath } = this.$route
     this.$nextTick(() => {
-      this.$router.replace({
-        path: '/redirect' + fullPath,
-      }).catch(err => {
-        console.warn(err)
-      })
+      this.$router
+        .replace({
+          path: '/redirect' + fullPath,
+        })
+        .catch((err) => {
+          console.warn(err)
+        })
     })
   }
 }
