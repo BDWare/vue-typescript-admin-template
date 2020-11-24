@@ -93,7 +93,9 @@ export default class extends Vue {
   }
 
   private change(route: RouteConfig) {
-    this.$router.push(route.path)
+    this.$router.push(route.path).catch(err => {
+      console.warn(err)
+    })
     this.search = ''
     this.options = []
     this.$nextTick(() => {

@@ -111,6 +111,7 @@ export default {
       '버튼 스타일, 표시 / 숨기기, 모양 높이, 반환 높이를 사용자 정의 할 수 있습니다. 텍스트 프롬프트가 필요한 경우 element-ui el-tooltip 요소를 외부에서 사용할 수 있습니다',
     imageUploadTips:
       'vue @ 1 버전 만 사용하고 있었고 현재 mockjs와 호환되지 않기 때문에 직접 수정했으며 사용하려는 경우 공식 버전을 사용하는 것이 좋습니다.',
+    changeLanguageTips: '언어 전환 성공',
   },
   table: {
     dynamicTips1: '정렬된 헤더',

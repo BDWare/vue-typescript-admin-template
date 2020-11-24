@@ -114,6 +114,7 @@ export default {
       'Puoi personalizzare lo stile dei bottoni, mostra / nascondi, altezza di apparizione, altezza del ritorno a capo. Se hai bisogno di un prompt di testo, puoi utilizzare gli elementi element-ui el-tooltip esternamente',
     imageUploadTips:
       'Da quando usavo la verione 1 di Vue che non è compatibile con mockjs, la ho modificata io stesst, e se la userai, è meglio utilizzare versioni ufficiali.',
+    changeLanguageTips: 'Cambio lingua riuscito',
   },
   table: {
     dynamicTips1: "Intestazione Fissa, ordinato dall'ordine delle intestazioni",
