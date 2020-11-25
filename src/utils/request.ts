@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { Message, MessageBox } from 'element-ui'
 import { UserModule } from '@/store/modules/user'
+import config from '@/config'
 
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
+  baseURL: config.apiBaseUrl, // url = base url + request url
   timeout: 5000,
   // withCredentials: true // send cookies when cross-domain requests
 })

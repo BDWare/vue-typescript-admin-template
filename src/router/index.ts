@@ -10,6 +10,8 @@ import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
 
+import config from '@/config'
+
 Vue.use(VueRouter)
 
 /*
@@ -36,10 +38,10 @@ Vue.use(VueRouter)
 */
 
 /**
-  ConstantRoutes
-  a base page that does not have permission requirements
-  all roles can be accessed
-*/
+ ConstantRoutes
+ a base page that does not have permission requirements
+ all roles can be accessed
+ */
 export const constantRoutes: RouteConfig[] = [
   {
     path: '/redirect',
@@ -516,7 +518,7 @@ const createRouter = () =>
         return { x: 0, y: 0 }
       }
     },
-    base: process.env.BASE_URL,
+    base: config.publicBaseUrl,
     routes: constantRoutes,
   })
 

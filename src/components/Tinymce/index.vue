@@ -67,6 +67,8 @@ import { AppModule } from '@/store/modules/app'
 import { SettingsModule } from '@/store/modules/settings'
 import EditorImageUpload, { IUploadObject } from './components/EditorImage.vue'
 import { plugins, toolbar } from './config'
+// Import config
+import config from '@/config'
 
 const defaultId = () =>
   'vue-tinymce-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '')
@@ -139,9 +141,9 @@ export default class extends Vue {
       language_url:
         this.language === 'en'
           ? ''
-          : `${process.env.BASE_URL}tinymce/langs/${this.language}.js`,
-      skin_url: `${process.env.BASE_URL}tinymce/skins/`,
-      emoticons_database_url: `${process.env.BASE_URL}tinymce/emojis.min.js`,
+          : `${config.publicBaseUrl}tinymce/langs/${this.language}.js`,
+      skin_url: `${config.publicBaseUrl}tinymce/skins/`,
+      emoticons_database_url: `${config.publicBaseUrl}tinymce/emojis.min.js`,
       end_container_on_empty_block: true,
       powerpaste_word_import: 'clean',
       code_dialog_height: 450,

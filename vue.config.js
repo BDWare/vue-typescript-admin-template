@@ -61,6 +61,10 @@ module.exports = {
       return args
     })
 
+    // entry point for src/config.ts, which is modified when starting Docker container
+    // and is read runtime to overwrite build-time config
+    config.entry('config').add('./src/config.ts').end()
+
     // it can improve the speed of the first screen, it is recommended to turn on preload
     config.plugin('preload').tap(() => [
       {
