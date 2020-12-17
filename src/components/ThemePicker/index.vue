@@ -126,7 +126,7 @@ export default class extends Vue {
             /@font-face{[^}]+}/,
             '',
           )
-          resolve()
+          resolve(null)
         }
       }
       xhr.open('GET', url)
