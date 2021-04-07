@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import echarts, { EChartsCoreOption } from 'echarts'
+import * as echarts from 'echarts'
 import { Component, Prop, Watch } from 'vue-property-decorator'
 import { mixins } from 'vue-class-component'
 import ResizeMixin from '@/components/Charts/mixins/resize'
@@ -113,7 +113,7 @@ export default class extends mixins(ResizeMixin) {
             animationEasing: 'quadraticOut',
           },
         ],
-      } as EChartsCoreOption)
+      })
     }
   }
 }

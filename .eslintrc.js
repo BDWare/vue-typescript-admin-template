@@ -11,8 +11,8 @@ module.exports = {
     '@vue/typescript/recommended',
     // '@vue/prettier',
     // '@vue/prettier/@typescript-eslint',
-    'plugin:prettier/recommended',
     'prettier',
+    'plugin:prettier/recommended',
   ],
   parserOptions: {
     ecmaVersion: 2020,

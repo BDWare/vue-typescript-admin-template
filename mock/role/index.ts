@@ -52,7 +52,7 @@ export const createRole = (req: Request, res: Response) => {
   return res.json({
     code: 20000,
     data: {
-      key: faker.random.number({ min: 3, max: 10000 }),
+      key: faker.datatype.number({ min: 3, max: 10000 })
     },
   })
 }
@@ -69,7 +69,7 @@ export const updateRole = (req: Request, res: Response) => {
 
 export const deleteRole = (req: Request, res: Response) => {
   return res.json({
-    code: 20000,
+    code: 20000
   })
 }
 
