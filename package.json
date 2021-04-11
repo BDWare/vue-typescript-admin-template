@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "prepare": "husky install",
-    "serve": "concurrently \"npm:mock\" \"vue-cli-service serve\"",
+    "dev": "cross-env MOCK=false vue-cli-service serve",
+    "dev:mock": "concurrently \"npm:mock\" \"cross-env MOCK=true vue-cli-service serve\"",
     "test:unit": "jest --clearCache && vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "build:prod": "vue-cli-service build",
@@ -20,6 +21,7 @@
     "codemirror": "^5.60.0",
     "core-js": "^3.10.0",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "driver.js": "^0.9.8",
     "echarts": "^5.0.2",
     "element-ui": "^2.15.1",
