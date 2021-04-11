@@ -6,8 +6,10 @@ const path = require('path')
 // For example, on Mac: sudo npm run / sudo yarn
 const devServerPort = 9527 // TODO: get this variable from setting.ts
 const mockServerPort = 9528 // TODO: get this variable from setting.ts
+const devApiServerPort = 4000 // TODO: get this variable from setting.ts
 const name = 'Vue Typescript Admin' // TODO: get this variable from setting.ts
 const mock = process.env.MOCK && process.env.MOCK.toLocaleLowerCase() === 'true'
+const apiPort = mock ? mockServerPort : devApiServerPort
 
 module.exports = {
   publicPath:
@@ -28,9 +30,7 @@ module.exports = {
       // change xxx-api/login => /mock-api/v1/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [process.env.VUE_APP_BASE_API]: {
-        target:
-          'http://127.0.0.1:' +
-          (mock ? mockServerPort + '/mock-api/v1' : devServerPort + '/api'),
+        target: `http://127.0.0.1:${apiPort}/api/v1`,
         changeOrigin: true, // needed for virtual hosted sites
         ws: true, // proxy websockets
         pathRewrite: {
